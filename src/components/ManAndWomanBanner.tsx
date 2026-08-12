@@ -40,7 +40,7 @@ export const ManAndWomanBanner: React.FC<ManAndWomanBannerProps> = ({ onSelectCa
           onClick={handleClick}
           className="bg-white hover:bg-neutral-100 text-black font-inter font-extrabold text-[6px] sm:text-sm tracking-[0.2em] uppercase px-3 sm:px-8 py-3 sm:py-4 transition-all shadow-xl hover:shadow-2xl flex items-center space-x-3 group cursor-pointer border border-black/10 active:scale-95"
         >
-          <span>EXPLORE THE DROP</span>
+          <span>EXPLORE COLLECTION</span>
           <ArrowRight size={18} className="hidden sm:block group-hover:translate-x-1.5 transition-transform text-black" />
         </button>
       </div>
