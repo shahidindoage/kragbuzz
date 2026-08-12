@@ -36,31 +36,29 @@ export const BestSellersSection: React.FC<BestSellersSectionProps> = ({
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-neutral-200 pb-6">
           <div>
-            {/* <div className="flex items-center space-x-3 text-neutral-600 font-inter text-xs tracking-[0.25em] uppercase font-bold mb-2">
-              <span className="w-2 h-2 bg-black"></span>
-              <span>GLOBAL ESSENTIALS</span>
-            </div> */}
+            {/* Added Subtitle above the Main Title */}
+            <div className="flex items-center space-x-2 text-neutral-600 font-inter text-xs tracking-[0.25em] uppercase font-bold mb-2">
+              <span className="w-2 h-2 bg-red-600"></span>
+              <span>BEST SELLERS</span>
+            </div>
+
             <h2 className="font-anton text-4xl sm:text-6xl text-black tracking-wider uppercase">
-            MADE TO MOVE. BUILT TO GRIND.
+              MADE TO MOVE. BUILT TO GRIND.
             </h2>
           </div>
 
           <div className="flex items-center space-x-4 mt-6 md:mt-0">
-            {/* <p className="font-inter text-xs text-neutral-600 max-w-xs font-normal hidden lg:block">
-              Tested by world-class athletes. Driven by high-octane fashion and raw kinetic output.
-            </p> */}
-
             <div className="flex items-center space-x-2">
               <button
                 onClick={() => handleScroll('left')}
-                className="w-12 h-12 border border-neutral-300 bg-white hover:bg-black hover:text-white transition-all flex items-center justify-center text-black"
+                className="w-12 h-12 border border-neutral-300 bg-white hover:bg-black hover:text-white transition-all flex items-center justify-center text-black cursor-pointer"
                 aria-label="Scroll Best Sellers Left"
               >
                 <ChevronLeft size={20} />
               </button>
               <button
                 onClick={() => handleScroll('right')}
-                className="w-12 h-12 border border-neutral-300 bg-white hover:bg-black hover:text-white transition-all flex items-center justify-center text-black"
+                className="w-12 h-12 border border-neutral-300 bg-white hover:bg-black hover:text-white transition-all flex items-center justify-center text-black cursor-pointer"
                 aria-label="Scroll Best Sellers Right"
               >
                 <ChevronRight size={20} />
@@ -119,7 +117,7 @@ export const BestSellersSection: React.FC<BestSellersSectionProps> = ({
                       e.stopPropagation();
                       onToggleWishlist(product);
                     }}
-                    className={`absolute top-3 right-3 z-10 w-9 h-9 rounded-full flex items-center justify-center backdrop-blur-md transition-all ${
+                    className={`absolute top-3 right-3 z-10 w-9 h-9 rounded-full flex items-center justify-center backdrop-blur-md transition-all cursor-pointer ${
                       isWishlisted
                         ? 'bg-red-600 text-white'
                         : 'bg-white/80 text-black hover:bg-black hover:text-white border border-neutral-200'
@@ -136,7 +134,7 @@ export const BestSellersSection: React.FC<BestSellersSectionProps> = ({
                         e.stopPropagation();
                         onQuickView(product);
                       }}
-                      className="flex-1 py-2.5 bg-black text-white font-inter font-bold text-xs tracking-wider uppercase hover:bg-neutral-800 transition-colors flex items-center justify-center space-x-1"
+                      className="flex-1 py-2.5 bg-black text-white font-inter font-bold text-xs tracking-wider uppercase hover:bg-neutral-800 transition-colors flex items-center justify-center space-x-1 cursor-pointer"
                     >
                       <Eye size={14} />
                       <span>QUICK VIEW</span>
@@ -146,7 +144,7 @@ export const BestSellersSection: React.FC<BestSellersSectionProps> = ({
                         e.stopPropagation();
                         onAddToCart(product, product.colors[0]?.name || 'Standard', product.sizes[0] || 'M');
                       }}
-                      className="p-2.5 bg-white border border-neutral-300 text-black hover:bg-neutral-100 transition-colors"
+                      className="p-2.5 bg-white border border-neutral-300 text-black hover:bg-neutral-100 transition-colors cursor-pointer"
                       title="Quick Add to Bag"
                     >
                       <ShoppingBag size={16} />
@@ -192,7 +190,7 @@ export const BestSellersSection: React.FC<BestSellersSectionProps> = ({
                     {/* Price */}
                     <div className="text-right">
                       <span className="font-inter text-sm font-bold text-black">
-                        ₹{product.price} 
+                        ₹{product.price}
                       </span>
                     </div>
                   </div>

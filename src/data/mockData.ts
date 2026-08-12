@@ -301,6 +301,28 @@ export const HEADWEAR: Product[] = [
     isBestSeller: true,
     features: ['Laser-cut ventilation ports', 'Hydrophobic water-repellent treatment', 'Custom anti-bacterial sweatband']
   },
+   {
+    id: 'headwear-4',
+    name: 'Twist CAP',
+    category: 'headwear',
+    categoryLabel: 'HEADWEAR / CAPS',
+    price: 599.00,
+    originalPrice: 999.00,
+    description: 'Structured 6-panel athletic cap with laser-cut breathability perforations, water-repellent shell, and laser-engraved metal clasp.',
+    colors: [
+      { name: 'Onyx Black', hex: '#121212' },
+      { name: 'Tactical Olive', hex: '#2d372e' },
+      { name: 'Stealth Grey', hex: '#4a4e51' }
+    ],
+    sizes: ['OSFA'],
+    image: 'https://kragbuzz.com/cdn/shop/files/DSC07491_0605a176-3301-49e9-806f-3f6a25b90bb9.jpg?v=1783751575&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/DSC07488_28bc39e0-c7d2-4845-ad26-5b517e3ea4cc.jpg?v=1783751575&width=720',
+    rating: 4.9,
+    reviewsCount: 142,
+    isNew: true,
+    isBestSeller: true,
+    features: ['Laser-cut ventilation ports', 'Hydrophobic water-repellent treatment', 'Custom anti-bacterial sweatband']
+  },
 ];
 
 export const CRICKET: Product[] = [
