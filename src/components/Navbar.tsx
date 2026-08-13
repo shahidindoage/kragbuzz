@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ShoppingBag, Menu, X, ArrowRight, User, Search, MapPin } from 'lucide-react';
 import { CartItem, Product } from '../types';
+import { Link } from 'react-router-dom';
 
 interface NavbarProps {
   cartItems: CartItem[];
@@ -54,12 +55,12 @@ export const Navbar: React.FC<NavbarProps> = ({
     {
       type: 'creatory',
       label: 'The Creatory',
-      target: 'creatory-banner',
+      target: 'creatory',
       badgeStyle: 'bg-red-600 text-white font-extrabold px-3 py-1 rounded-sm shadow-xs hover:bg-black',
     },
     {
       type: 'kragcaps',
-      target: 'accessories-banner',
+      target: 'krag-caps',
     },
   ];
 
@@ -124,7 +125,8 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
 
             {/* Main Brand Logo */}
-            <div
+            <Link
+              to="/"
               onClick={() => {
                 setMenuOpen(false);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -137,12 +139,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                 className="h-16 sm:h-20 lg:h-22 xl:h-24 w-auto max-h-[140%] object-contain origin-left group-hover:scale-105 transition-transform drop-shadow-xs py-0.5"
                 referrerPolicy="no-referrer"
               />
-            </div>
+            </Link>
 
             {/* Desktop Navigation Menu Links */}
             <nav className="hidden lg:flex items-center space-x-4 xl:space-x-6 h-full">
               {navLinks.map((link, index) => (
-                <button
+                <Link
+                  to={link.target}
                   key={`${link.target}-${index}`}
                   onClick={() => handleNavClick(link.target)}
                   className="flex items-center justify-center cursor-pointer py-1 shrink-0"
@@ -162,7 +165,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                       {link.label}
                     </span>
                   )}
-                </button>
+                </Link>
               ))}
             </nav>
           </div>

@@ -43,7 +43,7 @@ import { HEADWEAR } from '../data/mockData';
 
 const HeroBanner = () => {
   return (
-    <section className="relative w-full h-screen min-h-[600px] overflow-hidden bg-black flex items-center justify-center md:justify-start">
+    <section className="relative w-full h-[85vh] min-h-[550px] overflow-hidden bg-black flex items-center justify-center md:justify-start">
       {/* 1. Background Image Layer (Hidden on mobile) */}
       <img
         src="/capsbg.png"
@@ -84,12 +84,11 @@ const HeroBanner = () => {
         </p>
 
         <div>
-          <button 
-            onClick={() => console.log('Explore Collection clicked')}
+          <a href="#best-sellers-section2" onClick={() => console.log('Explore Collection clicked')}
             className="border-2 border-black text-white font-bold tracking-wider text-xs sm:text-sm uppercase px-8 py-3 bg-black transition-all duration-300 hover:bg-black hover:text-[#E72F07]"
           >
             EXPLORE KRAGCAPS
-          </button>
+          </a>
         </div>
       </div>
     </section>
@@ -294,12 +293,12 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-const StylesSection = () => {
+export const StylesSection = () => {
   const [activeCategory, setActiveCategory] = useState('All');
 
   const categories = ['All', 'Athletic', 'Classic', 'Lifestyle', 'Specialized'];
 
-  const getCategory = (id) => {
+  const getCategory = (id: string) => {
     const athletic = ['runner-ultra', 'visor', 'golf', 'side-mesh', 'fishing'];
     const classic = ['5-panel', '6-panel', 'moon-cut', 'snapback', 'cadet'];
     const lifestyle = ['baggy', 'hat', 'woollen', 'bucket', 'beanie'];
@@ -317,13 +316,32 @@ const StylesSection = () => {
     : CAP_STYLES.filter(style => getCategory(style.id) === activeCategory);
 
   return (
-    <section id="styles" className="py-24 bg-black overflow-hidden">
+    <section id="styles" className="py-24 bg-black overflow-hidden relative">
+      {/* Red Swiper Pagination Overrides */}
+      <style>{`
+        .styles-swiper-container .swiper-pagination-bullet {
+          background-color: #52525b !important; /* Inactive dot color */
+          opacity: 0.6;
+          width: 8px;
+          height: 8px;
+          transition: all 0.3s ease;
+        }
+        .styles-swiper-container .swiper-pagination-bullet-active {
+          background-color: #E72F07 !important; /* Active red dot */
+          opacity: 1;
+          width: 24px;
+          border-radius: 4px;
+        }
+      `}</style>
+
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div>
-            <span className="text-red-600 font-bold tracking-widest uppercase text-sm">The Collection</span>
-            <h2 className="text-4xl md:text-6xl font-black text-white mt-2 tracking-tighter">TYPES OF CAPS</h2>
+            {/* <span className="text-[#E72F07] font-bold tracking-widest uppercase text-sm">The Collection</span> */}
+            <h2 className="text-4xl md:text-6xl font-anton text-white mt-2 tracking-tighter">TYPES OF CAPS</h2>
+          
+          
           </div>
           <p className="text-gray-500 max-w-md text-right hidden md:block">
             From classic baseball silhouettes to specialized performance gear, we offer a comprehensive range of styles for every need.
@@ -338,7 +356,7 @@ const StylesSection = () => {
               onClick={() => setActiveCategory(cat)}
               className={`whitespace-nowrap px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all border ${
                 activeCategory === cat 
-                  ? 'bg-red-600 border-red-600 text-white' 
+                  ? 'bg-[#E72F07] border-[#E72F07] text-white' 
                   : 'bg-zinc-900 border-zinc-800 text-gray-400 hover:border-zinc-700'
               }`}
             >
@@ -347,41 +365,41 @@ const StylesSection = () => {
           ))}
         </div>
 
-     {/* Cap Styles Slider */}
-<div className="relative styles-swiper-container">
-  <Swiper
-    key={activeCategory} // Force swiper re-initialization on category change
-    modules={[Navigation, Pagination, Autoplay]}
-    spaceBetween={24}
-    slidesPerView={1}
-    grabCursor={true}
-    navigation={{
-      nextEl: '.swiper-button-next-custom',
-      prevEl: '.swiper-button-prev-custom',
-    }}
-    pagination={{ clickable: true, dynamicBullets: true }}
-    breakpoints={{
-      640: { slidesPerView: 2, spaceBetween: 20 },
-      1024: { slidesPerView: 3, spaceBetween: 24 },
-      1280: { slidesPerView: 4, spaceBetween: 32 },
-    }}
-    className="!pb-16"
-  >
-    {filteredStyles.map((style, idx) => (
-      <SwiperSlide key={style.id} className="h-auto">
-        <StyleCard style={style} index={idx} />
-      </SwiperSlide>
-    ))}
-  </Swiper> {/* <--- FIXED: Closed Swiper tag properly */}
+        {/* Cap Styles Slider */}
+        <div className="relative styles-swiper-container">
+          <Swiper
+            key={activeCategory} // Force swiper re-initialization on category change
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={24}
+            slidesPerView={1}
+            grabCursor={true}
+            navigation={{
+              nextEl: '.swiper-button-next-custom',
+              prevEl: '.swiper-button-prev-custom',
+            }}
+            pagination={{ clickable: true, dynamicBullets: true }}
+            breakpoints={{
+              640: { slidesPerView: 2, spaceBetween: 20 },
+              1024: { slidesPerView: 3, spaceBetween: 24 },
+              1280: { slidesPerView: 4, spaceBetween: 32 },
+            }}
+            className="!pb-16"
+          >
+            {filteredStyles.map((style, idx) => (
+              <SwiperSlide key={style.id} className="h-auto">
+                <StyleCard style={style} index={idx} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
 
-  {/* Custom Navigation Arrows */}
-  <button className="swiper-button-prev-custom absolute top-1/2 -left-4 -translate-y-1/2 z-20 bg-zinc-900/80 hover:bg-red-600 border border-zinc-700 text-white p-3 rounded-full backdrop-blur-md transition-colors hidden lg:flex items-center justify-center">
-    ‹
-  </button>
-  <button className="swiper-button-next-custom absolute top-1/2 -right-4 -translate-y-1/2 z-20 bg-zinc-900/80 hover:bg-red-600 border border-zinc-700 text-white p-3 rounded-full backdrop-blur-md transition-colors hidden lg:flex items-center justify-center">
-    ›
-  </button>
-</div>
+          {/* Custom Navigation Arrows */}
+          <button className="swiper-button-prev-custom absolute top-1/2 -left-4 -translate-y-1/2 z-20 bg-zinc-900/80 hover:bg-[#E72F07] border border-zinc-700 text-white p-3 rounded-full backdrop-blur-md transition-colors hidden lg:flex items-center justify-center">
+            ‹
+          </button>
+          <button className="swiper-button-next-custom absolute top-1/2 -right-4 -translate-y-1/2 z-20 bg-zinc-900/80 hover:bg-[#E72F07] border border-zinc-700 text-white p-3 rounded-full backdrop-blur-md transition-colors hidden lg:flex items-center justify-center">
+            ›
+          </button>
+        </div>
       </div>
     </section>
   );
@@ -389,8 +407,7 @@ const StylesSection = () => {
 
 
 
-
-const CustomizationSection = () => {
+export const CustomizationSection = () => {
   const [activeTab, setActiveTab] = useState('crown');
 
   const tabs = [
@@ -400,26 +417,43 @@ const CustomizationSection = () => {
   ];
 
   return (
-    <section id="customization" className="py-24 bg-[#FAFAFA]">
+    <section id="customization" className="py-12 md:py-16 bg-[#FAFAFA] relative">
+      {/* Red Swiper Pagination Overrides */}
+      <style>{`
+        #customization .swiper-pagination-bullet {
+          background-color: #a1a1aa !important;
+          opacity: 0.6;
+          width: 8px;
+          height: 8px;
+          transition: all 0.3s ease;
+        }
+        #customization .swiper-pagination-bullet-active {
+          background-color: #E72F07 !important;
+          opacity: 1;
+          width: 24px;
+          border-radius: 4px;
+        }
+      `}</style>
+
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-black text-zinc-900 tracking-tighter mb-6">
-            UNLIMITED <span className="text-red-600">CUSTOMIZATION</span>
+        <div className="text-center mb-10">
+          <h2 className="text-4xl md:text-6xl font-anton text-zinc-900 tracking-tighter mb-4">
+            UNLIMITED CUSTOMIZATION<span className="text-[#E72F07]"></span>
           </h2>
-          <p className="text-zinc-600 max-w-2xl mx-auto text-lg">
+          <p className="text-zinc-600 max-w-2xl mx-auto text-base md:text-lg">
             Every detail matters. Select a category below to explore our premium customization options.
           </p>
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-4 mb-10">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={`flex items-center gap-3 px-8 py-4 rounded-full font-bold transition-all border-2 ${
                 activeTab === tab.id
-                  ? 'bg-red-600 border-red-600 text-white shadow-lg shadow-red-600/20'
+                  ? 'bg-[#E72F07] border-[#E72F07] text-white shadow-lg shadow-red-600/20'
                   : 'bg-white border-zinc-200 text-zinc-600 hover:border-zinc-300 shadow-sm'
               }`}
             >
@@ -429,16 +463,17 @@ const CustomizationSection = () => {
           ))}
         </div>
 
-        <div className="min-h-[480px] relative">
+        {/* Removed min-h wrapper constraint */}
+        <div className="relative">
           <AnimatePresence mode="wait">
             {/* CROWN PROFILES SLIDER */}
             {activeTab === 'crown' && (
               <motion.div
                 key="crown"
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.25 }}
               >
                 <Swiper
                   modules={[Navigation, Pagination]}
@@ -450,11 +485,11 @@ const CustomizationSection = () => {
                     640: { slidesPerView: 2, spaceBetween: 20 },
                     1024: { slidesPerView: 3, spaceBetween: 24 },
                   }}
-                  className="!pb-14"
+                  className="!pb-10"
                 >
                   {CROWN_TYPES.map((type, idx) => (
                     <SwiperSlide key={idx} className="h-auto">
-                      <div className="group bg-white rounded-2xl border border-zinc-200 hover:border-red-600/40 transition-all shadow-sm overflow-hidden h-full flex flex-col select-none">
+                      <div className="group bg-white rounded-2xl border border-zinc-200 hover:border-[#E72F07]/40 transition-all shadow-sm overflow-hidden h-full flex flex-col select-none">
                         <div className="aspect-square bg-zinc-100 overflow-hidden relative">
                           <img
                             src={type.img1}
@@ -483,11 +518,11 @@ const CustomizationSection = () => {
             {activeTab === 'peak' && (
               <motion.div
                 key="peak"
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
-                className="space-y-8"
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.25 }}
+                className="space-y-6"
               >
                 <Swiper
                   modules={[Navigation, Pagination]}
@@ -499,11 +534,11 @@ const CustomizationSection = () => {
                     640: { slidesPerView: 2, spaceBetween: 20 },
                     1024: { slidesPerView: 4, spaceBetween: 24 },
                   }}
-                  className="!pb-14"
+                  className="!pb-10"
                 >
                   {PEAK_STYLES.map((peak, idx) => (
                     <SwiperSlide key={idx} className="h-auto">
-                      <div className="bg-white rounded-2xl border border-zinc-200 flex flex-col overflow-hidden group hover:border-red-600/40 transition-all shadow-sm h-full select-none">
+                      <div className="bg-white rounded-2xl border border-zinc-200 flex flex-col overflow-hidden group hover:border-[#E72F07]/40 transition-all shadow-sm h-full select-none">
                         <div className="aspect-square bg-zinc-100 overflow-hidden">
                           <img
                             src={peak.img1}
@@ -523,14 +558,13 @@ const CustomizationSection = () => {
                   ))}
                 </Swiper>
 
-                {/* Tip Banner */}
-                <div className="p-8 bg-gradient-to-r from-red-600/10 to-white rounded-3xl border border-red-600/20 flex items-center gap-6 shadow-sm">
-                  <div className="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center shrink-0">
-                    <CheckCircle2 size={32} className="text-white" />
+                <div className="p-6 bg-gradient-to-r from-red-600/10 to-white rounded-3xl border border-red-600/20 flex items-center gap-6 shadow-sm">
+                  <div className="w-12 h-12 rounded-full bg-[#E72F07] flex items-center justify-center shrink-0">
+                    <CheckCircle2 size={24} className="text-white" />
                   </div>
                   <div>
-                    <h4 className="text-zinc-900 font-bold text-xl mb-1">Pro Customization Tip</h4>
-                    <p className="text-zinc-600">
+                    <h4 className="text-zinc-900 font-bold text-lg mb-0.5">Pro Customization Tip</h4>
+                    <p className="text-zinc-600 text-sm">
                       Combine a High-Profile crown with a Flat Peak for a modern urban look, or go Low-Profile and Curved for a classic athletic feel.
                     </p>
                   </div>
@@ -542,10 +576,10 @@ const CustomizationSection = () => {
             {activeTab === 'closures' && (
               <motion.div
                 key="closures"
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.25 }}
               >
                 <Swiper
                   modules={[Navigation, Pagination]}
@@ -558,11 +592,11 @@ const CustomizationSection = () => {
                     768: { slidesPerView: 4, spaceBetween: 20 },
                     1024: { slidesPerView: 6, spaceBetween: 20 },
                   }}
-                  className="!pb-14"
+                  className="!pb-6"
                 >
                   {CLOSURE_STYLES.map((closure, idx) => (
                     <SwiperSlide key={idx} className="h-auto">
-                      <div className="group bg-white rounded-xl border border-zinc-200 overflow-hidden hover:border-red-600/40 transition-all shadow-sm h-full flex flex-col select-none">
+                      <div className="group bg-white rounded-xl border border-zinc-200 overflow-hidden hover:border-[#E72F07]/40 transition-all shadow-sm h-full flex flex-col select-none">
                         <div className="aspect-square bg-zinc-100 overflow-hidden relative">
                           <img
                             src={closure.img1}
@@ -571,7 +605,7 @@ const CustomizationSection = () => {
                             referrerPolicy="no-referrer"
                           />
                         </div>
-                        <div className="p-3 text-center bg-white border-t border-zinc-100 flex-grow flex items-center justify-center">
+                        <div className="p-2.5 text-center bg-white border-t border-zinc-100 flex-grow flex items-center justify-center">
                           <span className="text-[10px] text-zinc-700 font-bold uppercase tracking-tighter">
                             {closure.name}
                           </span>
@@ -589,31 +623,55 @@ const CustomizationSection = () => {
   );
 };
 
-const FabricSection = () => {
+
+
+export const FabricSection = () => {
   const [activeCategory, setActiveCategory] = useState(FABRICS[0].category);
 
+  const currentCategoryData = FABRICS.find(f => f.category === activeCategory);
+
   return (
-    <section id="fabrics" className="py-24 bg-black overflow-hidden">
+    <section id="fabrics" className="py-12 md:py-16 bg-black overflow-hidden relative">
+      {/* Red Swiper Pagination Overrides */}
+      <style>{`
+        #fabrics .swiper-pagination-bullet {
+          background-color: #52525b !important;
+          opacity: 0.6;
+          width: 8px;
+          height: 8px;
+          transition: all 0.3s ease;
+        }
+        #fabrics .swiper-pagination-bullet-active {
+          background-color: #E72F07 !important;
+          opacity: 1;
+          width: 24px;
+          border-radius: 4px;
+        }
+      `}</style>
+
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8">
+        <div className="flex flex-col lg:flex-row justify-between items-end mb-10 gap-6">
           <div className="max-w-2xl">
-            <span className="text-red-600 font-bold tracking-widest uppercase text-sm">Material Excellence</span>
-            <h2 className="text-4xl md:text-6xl font-black text-white mt-2 tracking-tighter">PREMIUM FABRICS</h2>
-            <p className="text-gray-400 mt-6 text-lg">
+            {/* <span className="text-[#E72F07] font-bold tracking-widest uppercase text-sm">Material Excellence</span> */}
+            {/* <h2 className="text-4xl md:text-6xl font-black text-white mt-2 tracking-tighter">PREMIUM FABRICS</h2> */}
+           <h2 className="text-4xl md:text-6xl font-anton text-white tracking-tight">
+              PREMIUM  FABRICS<span className="text-[#E72F07]"></span>
+            </h2>
+            <p className="text-gray-400 mt-4 text-base md:text-lg">
               Technical performance meets luxury. Explore our curated library of high-performance knits, premium woven fabrics, and specialized materials.
             </p>
           </div>
           
           {/* Category Selector */}
-          <div className="flex overflow-x-auto pb-4 lg:pb-0 lg:flex-wrap gap-2 lg:justify-end no-scrollbar">
+          <div className="flex overflow-x-auto pb-4 lg:pb-0 lg:flex-wrap gap-2 lg:justify-end no-scrollbar w-full lg:w-auto">
             {FABRICS.map((cat) => (
               <button
                 key={cat.category}
                 onClick={() => setActiveCategory(cat.category)}
                 className={`whitespace-nowrap px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-widest transition-all border ${
                   activeCategory === cat.category 
-                    ? 'bg-red-600 border-red-600 text-white' 
-                    : 'bg-zinc-900 border-zinc-800 text-gray-500 hover:border-zinc-700'
+                    ? 'bg-[#E72F07] border-[#E72F07] text-white' 
+                    : 'bg-zinc-900 border-zinc-800 text-gray-400 hover:border-zinc-700'
                 }`}
               >
                 {cat.category}
@@ -622,74 +680,83 @@ const FabricSection = () => {
           </div>
         </div>
 
+        {/* Fabric Swiper Slider */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeCategory}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.4 }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+            className="relative fabrics-swiper-container"
           >
-            {FABRICS.find(f => f.category === activeCategory)?.items.map((item, idx) => (
-              <div key={idx} className="bg-zinc-900/40 border border-zinc-800/50 rounded-2xl p-6 hover:bg-zinc-900 transition-all group">
-                <div className="flex justify-between items-start mb-6">
-                  <h3 className="text-white font-bold text-lg group-hover:text-red-500 transition-colors">{item.name}</h3>
-                  <div className="px-2 py-1 bg-zinc-800 rounded text-[10px] text-gray-500 font-bold uppercase">
-                    {item.colors.length || 1} Variations
+            <Swiper
+              modules={[Navigation, Pagination, Autoplay]}
+              spaceBetween={20}
+              slidesPerView={1}
+              grabCursor={true}
+              pagination={{ clickable: true, dynamicBullets: true }}
+              breakpoints={{
+                640: { slidesPerView: 2, spaceBetween: 20 },
+                1024: { slidesPerView: 3, spaceBetween: 24 },
+              }}
+              className="!pb-10"
+            >
+              {currentCategoryData?.items.map((item, idx) => (
+                <SwiperSlide key={idx} className="h-auto">
+                  <div className="bg-zinc-900/40 border border-zinc-800/50 rounded-2xl p-6 hover:bg-zinc-900/80 hover:border-[#E72F07]/30 transition-all group h-full flex flex-col justify-between">
+                    <div>
+                      <div className="flex justify-between items-start mb-6">
+                        <h3 className="text-white font-bold text-lg group-hover:text-[#E72F07] transition-colors">
+                          {item.name}
+                        </h3>
+                        <div className="px-2 py-1 bg-zinc-800/80 border border-zinc-700/50 rounded text-[10px] text-gray-400 font-bold uppercase">
+                          {item.colors.length || 1} Variations
+                        </div>
+                      </div>
+                      
+                      <div className="grid grid-cols-3 gap-3">
+                        {item.colors.length > 0 ? (
+                          item.colors.map((color, ci) => (
+                            <div key={ci} className="space-y-2">
+                              <div className="aspect-square rounded-lg overflow-hidden bg-zinc-800 border border-zinc-700 group-hover:border-zinc-600 transition-all">
+                                <img 
+                                  src={`${color.img1}`} 
+                                  alt={`${item.name} - ${color.cn || color}`}
+                                  className="w-full h-full object-cover opacity-85 hover:opacity-100 hover:scale-110 transition-all duration-500"
+                                  referrerPolicy="no-referrer"
+                                />
+                              </div>
+                              <span className="text-[9px] text-gray-400 font-bold uppercase tracking-tighter block text-center truncate">
+                                {color.cn}
+                              </span>
+                            </div>
+                          ))
+                        ) : (
+                          [1, 2, 3].map((_, ci) => (
+                            <div key={ci} className="space-y-2">
+                              <div className="aspect-square rounded-lg overflow-hidden bg-zinc-800 border border-zinc-700" />
+                            </div>
+                          ))
+                        )}
+                      </div>
+                    </div>
                   </div>
-                </div>
-                
-                <div className="grid grid-cols-3 gap-3">
-                  {item.colors.length > 0 ? (
-                    item.colors.map((color, ci) => (
-                      <div key={ci} className="space-y-2">
-                        <div className="aspect-square rounded-lg overflow-hidden bg-zinc-800 border border-zinc-700 group-hover:border-zinc-600 transition-all">
-                          <img 
-                            src={`${color.img1}`} 
-                            alt={`${item.name} - ${color}`}
-                            className="w-full h-full object-cover opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-500"
-                            referrerPolicy="no-referrer"
-                          />
-                        </div>
-                        <span className="text-[9px] text-gray-500 font-bold uppercase tracking-tighter block text-center truncate">
-                          {color.cn}
-                        </span>
-                      </div>
-                    ))
-                  ) : (
-                    // Placeholder for items without specific color data in PDF
-                    [1, 2, 3].map((_, ci) => (
-                      <div key={ci} className="space-y-2">
-                        <div className="aspect-square rounded-lg overflow-hidden bg-zinc-800 border border-zinc-700">
-                          {/* <img 
-                            src={`https://picsum.photos/seed/fabric-${item.name.toLowerCase().replace(/\s+/g, '-')}-${ci}/150/150`} 
-                            alt={item.name}
-                            className="w-full h-full object-cover opacity-40"
-                            referrerPolicy="no-referrer"
-                          /> */}
-                        </div>
-                        {/* <span className="text-[9px] text-gray-600 font-bold uppercase tracking-tighter block text-center">
-                          Sample {ci + 1}
-                        </span> */}
-                      </div>
-                    ))
-                  )}
-                </div>
-              </div>
-            ))}
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </motion.div>
         </AnimatePresence>
         
-        {/* Global Color Palette - Compact Version */}
-        <div className="mt-20 pt-12 border-t border-zinc-900">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+        {/* Global Color Palette Header */}
+        <div className="mt-12 pt-8 border-t border-zinc-900">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <h4 className="text-white font-bold uppercase tracking-widest text-xs shrink-0">Standard Color Palette</h4>
             <div className="flex flex-wrap justify-center gap-2">
               {COLORS.map((color, idx) => (
                 <div key={idx} className="group relative">
                   <div 
-                    className="w-8 h-8 rounded-full border border-zinc-800 group-hover:scale-110 transition-transform shadow-lg cursor-help"
+                    className="w-7 h-7 rounded-full border border-zinc-800 group-hover:scale-110 transition-transform shadow-lg cursor-help"
                     style={{ backgroundColor: color.hex }}
                   />
                   <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-white text-black text-[8px] font-black rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10">
@@ -705,170 +772,430 @@ const FabricSection = () => {
   );
 };
 
-const BrandingSection = () => (
-  <section id="branding" className="py-24 bg-zinc-950">
-    <div className="max-w-7xl mx-auto px-6">
-      <div className="text-center mb-20">
-        <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter mb-6">YOUR BRAND, <span className="text-red-600">OUR CRAFT</span></h2>
-        <p className="text-gray-400 max-w-2xl mx-auto text-lg">State-of-the-art branding techniques to bring your vision to life with precision and durability.</p>
-      </div>
+import  { useRef } from 'react';
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-        {BRANDING_TYPES.map((type, idx) => (
-          <div key={idx} className="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden hover:border-red-600/30 transition-all group">
-            <div className="aspect-video overflow-hidden bg-zinc-800 relative">
-              <img 
-                src={`${type.img1}`} 
-                alt={type.name}
-                className="w-full h-full object-cover opacity-60 group-hover:scale-110 group-hover:opacity-100 transition-all duration-500"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent" />
-            </div>
-            <div className="p-6 relative">
-              <h3 className="text-white font-bold text-lg mb-2">{type.name}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">{type.description}</p>
-            </div>
+import { ChevronLeft } from 'lucide-react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+export const BrandingSection = () => {
+  const prevTechniqueRef = useRef<HTMLButtonElement>(null);
+  const nextTechniqueRef = useRef<HTMLButtonElement>(null);
+
+  return (
+    <section id="branding" className="py-12 md:py-16 bg-[#FAFAFA] relative">
+      {/* Custom Red Swiper Dots Override for Locations Slider */}
+      <style>{`
+        #branding .swiper-pagination-bullet {
+          background-color: #a1a1aa !important;
+          opacity: 0.6;
+          width: 8px;
+          height: 8px;
+          transition: all 0.3s ease;
+        }
+        #branding .swiper-pagination-bullet-active {
+          background-color: #E72F07 !important;
+          opacity: 1;
+          width: 24px;
+          border-radius: 4px;
+        }
+      `}</style>
+
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Section Header with Arrow Navigation */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+          <div>
+            <h2 className="text-4xl md:text-6xl font-anton text-zinc-900 tracking-tighter mb-4">
+              YOUR BRAND, OUR CRAFT<span className="text-[#E72F07]"></span>
+            </h2>
+            <p className="text-zinc-600 max-w-2xl text-base md:text-lg">
+              State-of-the-art branding techniques to bring your vision to life with precision and durability.
+            </p>
           </div>
-        ))}
+
+          {/* Navigation Arrows for Techniques Slider */}
+          <div className="flex items-center gap-3 shrink-0">
+            <button
+              ref={prevTechniqueRef}
+              aria-label="Previous Technique"
+              className="w-10 h-10 rounded-full border border-zinc-300 bg-white text-zinc-800 hover:bg-[#E72F07] hover:border-[#E72F07] hover:text-white transition-all shadow-sm flex items-center justify-center disabled:opacity-30 disabled:hover:bg-white disabled:hover:text-zinc-800 disabled:hover:border-zinc-300"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button
+              ref={nextTechniqueRef}
+              aria-label="Next Technique"
+              className="w-10 h-10 rounded-full border border-zinc-300 bg-white text-zinc-800 hover:bg-[#E72F07] hover:border-[#E72F07] hover:text-white transition-all shadow-sm flex items-center justify-center disabled:opacity-30 disabled:hover:bg-white disabled:hover:text-zinc-800 disabled:hover:border-zinc-300"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
+        </div>
+
+        {/* 1. BRANDING TECHNIQUES SLIDER (Arrows Only, No Dots) */}
+        <div className="mb-14 relative">
+          <Swiper
+            modules={[Navigation, Autoplay]}
+            spaceBetween={24}
+            slidesPerView={1}
+            grabCursor={true}
+            navigation={{
+              prevEl: prevTechniqueRef.current,
+              nextEl: nextTechniqueRef.current,
+            }}
+            onBeforeInit={(swiper) => {
+              if (swiper.params.navigation && typeof swiper.params.navigation !== 'boolean') {
+                swiper.params.navigation.prevEl = prevTechniqueRef.current;
+                swiper.params.navigation.nextEl = nextTechniqueRef.current;
+              }
+            }}
+            breakpoints={{
+              640: { slidesPerView: 2, spaceBetween: 20 },
+              1024: { slidesPerView: 4, spaceBetween: 24 },
+            }}
+          >
+            {BRANDING_TYPES.map((type, idx) => (
+              <SwiperSlide key={idx} className="h-auto">
+                <div className="bg-white border border-zinc-200 rounded-2xl overflow-hidden hover:border-[#E72F07]/40 transition-all shadow-sm group h-full flex flex-col select-none">
+                  <div className="aspect-video overflow-hidden bg-zinc-100 relative">
+                    <img 
+                      src={`${type.img1}`} 
+                      alt={type.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-all duration-500"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-zinc-950/20 to-transparent" />
+                  </div>
+                  <div className="p-5 flex-grow flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-zinc-900 font-bold text-base group-hover:text-[#E72F07] transition-colors mb-2">
+                        {type.name}
+                      </h3>
+                      <p className="text-zinc-600 text-xs leading-relaxed">
+                        {type.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+
+        {/* 2. BRANDING LOCATIONS SLIDER CONTAINER */}
+        <div className="bg-white border border-zinc-200 rounded-3xl p-6 md:p-10 shadow-sm">
+          <h3 className="text-2xl md:text-4xl font-anton text-zinc-900 mb-8 text-center uppercase tracking-widest">
+            Branding Locations
+          </h3>
+          
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={16}
+            slidesPerView={2}
+            grabCursor={true}
+            pagination={{ clickable: true, dynamicBullets: true }}
+            breakpoints={{
+              640: { slidesPerView: 3, spaceBetween: 16 },
+              768: { slidesPerView: 4, spaceBetween: 20 },
+              1024: { slidesPerView: 6, spaceBetween: 20 },
+            }}
+            className="!pb-8"
+          >
+            {BRANDING_LOCATIONS.map((loc, idx) => (
+              <SwiperSlide key={idx} className="h-auto">
+                <div className="group flex flex-col items-center text-center select-none h-full">
+                  <div className="w-full aspect-square rounded-2xl bg-zinc-100 border border-zinc-200 overflow-hidden relative group-hover:border-[#E72F07]/50 transition-all shadow-sm mb-3">
+                    <img 
+                      src={`${loc.img1}`} 
+                      alt={loc.name || `Location ${idx + 1}`}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-all duration-500"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute top-2 left-2 w-6 h-6 rounded-full bg-zinc-900/80 backdrop-blur-md flex items-center justify-center text-[10px] text-white font-bold border border-white/20">
+                      {idx + 1}
+                    </div>
+                  </div>
+                  <span className="text-[11px] text-zinc-700 font-bold uppercase tracking-tight group-hover:text-[#E72F07] transition-colors">
+                    {loc.name}
+                  </span>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+
+
+
+export const AddonsSection = () => {
+  const prevAddonRef = useRef<HTMLButtonElement>(null);
+  const nextAddonRef = useRef<HTMLButtonElement>(null);
+
+  return (
+    <section id="addons" className="py-14 md:py-24 md:pb-8 bg-zinc-950 relative overflow-hidden">
+      {/* Background Subtle Gradient Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#E72F07]/5 blur-[120px] pointer-events-none rounded-full" />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        {/* Section Header with Dark Arrow Navigation */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div>
+            {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-950/40 border border-red-800/40 text-[#E72F07] text-xs font-semibold uppercase tracking-widest mb-4">
+            
+              Finishing Touches
+            </div> */}
+            <h2 className="text-4xl md:text-6xl font-anton text-white tracking-tighter">
+              THE FINISHING TOUCHES<span className="text-[#E72F07]"></span>
+            </h2>
+            <p className="text-zinc-400 mt-3 max-w-2xl text-base md:text-lg leading-relaxed">
+              Premium add-ons and signature accents engineered to set your custom headwear apart.
+            </p>
+          </div>
+
+          {/* Dark Arrow Navigation */}
+          <div className="flex items-center gap-3 shrink-0">
+            <button
+              ref={prevAddonRef}
+              aria-label="Previous Addon"
+              className="w-11 h-11 rounded-full border border-zinc-800 bg-zinc-900/80 text-zinc-300 hover:text-white hover:bg-[#E72F07] hover:border-[#E72F07] transition-all shadow-lg flex items-center justify-center disabled:opacity-30 disabled:hover:bg-zinc-900/80 disabled:hover:text-zinc-300 disabled:hover:border-zinc-800"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button
+              ref={nextAddonRef}
+              aria-label="Next Addon"
+              className="w-11 h-11 rounded-full border border-zinc-800 bg-zinc-900/80 text-zinc-300 hover:text-white hover:bg-[#E72F07] hover:border-[#E72F07] transition-all shadow-lg flex items-center justify-center disabled:opacity-30 disabled:hover:bg-zinc-900/80 disabled:hover:text-zinc-300 disabled:hover:border-zinc-800"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
+        </div>
+
+        {/* Addons Dark Swiper Slider */}
+        <div className="relative">
+          <Swiper
+            modules={[Navigation, Autoplay]}
+            spaceBetween={24}
+            slidesPerView={1}
+            grabCursor={true}
+            navigation={{
+              prevEl: prevAddonRef.current,
+              nextEl: nextAddonRef.current,
+            }}
+            onBeforeInit={(swiper) => {
+              if (swiper.params.navigation && typeof swiper.params.navigation !== 'boolean') {
+                swiper.params.navigation.prevEl = prevAddonRef.current;
+                swiper.params.navigation.nextEl = nextAddonRef.current;
+              }
+            }}
+            breakpoints={{
+              640: { slidesPerView: 2, spaceBetween: 20 },
+              1024: { slidesPerView: 4, spaceBetween: 24 },
+            }}
+          >
+            {ADDONS.map((addon, idx) => (
+              <SwiperSlide key={idx} className="h-auto">
+                <div className="group bg-zinc-900/60 border border-zinc-800/80 rounded-2xl overflow-hidden hover:border-[#E72F07]/50 hover:bg-zinc-900 transition-all duration-300 shadow-xl h-full flex flex-col select-none">
+                  {/* Image Container */}
+                  <div className="aspect-video bg-zinc-800 overflow-hidden relative">
+                    <img 
+                      src={`${addon.img1}`} 
+                      alt={addon.name}
+                      className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-out"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent opacity-90" />
+                    
+                    {/* Index Tag */}
+                    <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-zinc-950/80 backdrop-blur-md text-[10px] font-mono font-bold text-zinc-400 border border-zinc-800">
+                      {String(idx + 1).padStart(2, '0')}
+                    </div>
+                  </div>
+
+                  {/* Card Content */}
+                  <div className="p-6 flex-grow flex flex-col justify-between">
+                    <div>
+                      <h4 className="text-white font-bold text-base group-hover:text-[#E72F07] transition-colors mb-2 tracking-tight">
+                        {addon.name}
+                      </h4>
+                      <p className="text-zinc-400 text-xs leading-relaxed">
+                        {addon.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+
+
+export const SizingSection = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const panamaSizes = [
+    { size: 'XS', cm: '54cm' },
+    { size: 'Small', cm: '56cm' },
+    { size: 'Medium', cm: '57cm' },
+    { size: 'Large', cm: '58cm' },
+    { size: 'XL', cm: '59cm' },
+    { size: '2XL', cm: '61cm' },
+  ];
+
+  return (
+    <>
+      {/* 1. STICKY RIGHT-CENTER CTA BUTTON (Sharp Edges) */}
+      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-40">
+        <button
+          onClick={() => setIsOpen(true)}
+          className="bg-[#E72F07] hover:bg-red-600 text-white font-bold text-xs uppercase tracking-widest py-4 px-3 shadow-2xl shadow-red-950/50 transition-all active:scale-95 flex items-center gap-2 [writing-mode:vertical-rl] rotate-180 border-y border-l border-red-500/30"
+          aria-label="View Sizing Chart"
+        >
+          View Sizing Chart
+        </button>
       </div>
 
-      <div className="bg-black border border-zinc-800 rounded-3xl p-6 md:p-12">
-        <h3 className="text-xl md:text-2xl font-bold text-white mb-10 text-center uppercase tracking-widest">Branding Locations</h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
-          {BRANDING_LOCATIONS.map((loc, idx) => (
-            <div key={idx} className="group flex flex-col items-center gap-4 text-center">
-              <div className="w-full aspect-square rounded-2xl bg-zinc-900 border border-zinc-800 overflow-hidden relative group-hover:border-red-600/50 transition-all">
-                <img 
-                  src={`${loc.img1}`} 
-                  alt={loc}
-                  className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute top-2 left-2 w-6 h-6 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center text-[10px] text-white font-bold border border-white/20">
-                  {idx + 1}
+      {/* 2. SIZING POPUP MODAL (Dark Theme - Sharp Edges) */}
+      {isOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-black/80 backdrop-blur-md transition-opacity"
+            onClick={() => setIsOpen(false)}
+          />
+
+          {/* Modal Container */}
+          <div className="relative bg-zinc-900 border border-zinc-800 max-w-4xl w-full shadow-2xl overflow-hidden z-10 animate-in fade-in zoom-in-95 duration-200 max-h-[90vh] flex flex-col">
+            {/* Modal Header */}
+            <div className="p-6 md:p-8 border-b border-zinc-800/80 flex items-center justify-between bg-zinc-950/50">
+              <div>
+                <div className="inline-flex items-center gap-1.5 text-xs text-[#E72F07] font-semibold uppercase tracking-widest mb-1">
+                  Sizing Guide
+                </div>
+                <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight">
+                  PRECISION SIZING GUIDE
+                </h3>
+                <p className="text-zinc-400 text-xs md:text-sm mt-1">
+                  The perfect fit for every athlete, from juniors to adults.
+                </p>
+              </div>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="w-10 h-10 border border-zinc-800 bg-zinc-900 text-zinc-400 hover:text-white hover:bg-zinc-800 transition-all flex items-center justify-center"
+                aria-label="Close modal"
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            {/* Modal Body */}
+            <div className="p-6 md:p-8 overflow-y-auto space-y-8">
+              {/* Image Previews */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="aspect-video bg-zinc-950 overflow-hidden border border-zinc-800 relative group">
+                  <img
+                    src="https://kragbuzzsports.com/wp-content/uploads/2026/04/sizing.png"
+                    alt="Adult Sizing Guide"
+                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent flex items-end p-4">
+                    <span className="text-white font-bold uppercase tracking-widest text-xs">
+                      Adult Fit Guide
+                    </span>
+                  </div>
+                </div>
+
+                <div className="aspect-video bg-zinc-950 overflow-hidden border border-zinc-800 relative group">
+                  <img
+                    src="https://kragbuzzsports.com/wp-content/uploads/2026/04/sizing2.png"
+                    alt="Junior Sizing Guide"
+                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent flex items-end p-4">
+                    <span className="text-white font-bold uppercase tracking-widest text-xs">
+                      Junior Fit Guide
+                    </span>
+                  </div>
                 </div>
               </div>
-              <span className="text-[10px] text-gray-400 font-bold uppercase tracking-tighter group-hover:text-white transition-colors">{loc.name}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
-);
 
-const AddonsSection = () => (
-  <section className="py-24 bg-black">
-    <div className="max-w-7xl mx-auto px-6">
-      <div className="mb-16">
-        <h2 className="text-4xl font-black text-white tracking-tighter">THE FINISHING TOUCHES</h2>
-        <p className="text-gray-500 mt-4">Premium add-ons that set your headwear apart from the competition.</p>
-      </div>
-
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {ADDONS.map((addon, idx) => (
-          <div key={idx} className="group bg-zinc-900/30 border border-zinc-800 rounded-2xl overflow-hidden hover:bg-zinc-900 transition-all">
-            <div className="aspect-video bg-zinc-800 overflow-hidden relative">
-              <img 
-                src={`${addon.img1}`} 
-                alt={addon.name}
-                className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent opacity-60" />
-            </div>
-            <div className="p-6">
-              <h4 className="text-white font-bold mb-2 group-hover:text-red-500 transition-colors">{addon.name}</h4>
-              <p className="text-gray-500 text-sm leading-relaxed">{addon.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-);
-
-const SizingSection = () => (
-  <section className="py-24 bg-zinc-950">
-    <div className="max-w-4xl mx-auto px-6">
-      <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
-        <div className="p-8 md:p-12 text-center border-b border-zinc-800">
-          <h2 className="text-3xl md:text-4xl font-black text-white tracking-tighter mb-4">PRECISION SIZING</h2>
-          <p className="text-gray-400 text-sm md:text-base">The perfect fit for every athlete, from juniors to adults.</p>
-        </div>
-        <div className="p-6 md:p-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 border-b border-zinc-800">
-          <div className="aspect-video bg-zinc-800 rounded-2xl overflow-hidden relative group">
-            <img 
-              src="https://kragbuzzsports.com/wp-content/uploads/2026/04/sizing.png" 
-              alt="Adult Sizing Guide"
-              className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
-              {/* <span className="text-white font-bold uppercase tracking-widest text-[10px]">Adult Fit Guide</span> */}
-            </div>
-          </div>
-          <div className="aspect-video bg-zinc-800 rounded-2xl overflow-hidden relative group">
-            <img 
-              src="https://kragbuzzsports.com/wp-content/uploads/2026/04/sizing2.png" 
-              alt="Junior Sizing Guide"
-              className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
-              {/* <span className="text-white font-bold uppercase tracking-widest text-[10px]">Junior Fit Guide</span> */}
-            </div>
-          </div>
-        </div>
-        <div className="p-8 md:p-12 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
-          <div className="space-y-6">
-            <div className="flex justify-between items-center border-b border-zinc-800 pb-4">
-              <span className="text-white font-bold text-lg">Adult</span>
-              <span className="text-red-500 font-mono">54 - 60 cm</span>
-            </div>
-            <div className="flex justify-between items-center border-b border-zinc-800 pb-4">
-              <span className="text-white font-bold text-lg">Junior</span>
-              <span className="text-red-500 font-mono">48 - 55 cm</span>
-            </div>
-            <p className="text-xs text-gray-500 italic">One size fits most for standard athletic caps.</p>
-          </div>
-          <div className="bg-black/50 p-6 rounded-2xl">
-            <h4 className="text-white font-bold mb-4 uppercase tracking-widest text-xs">Panama Hat Sizing</h4>
-            <div className="space-y-2">
-              {[
-                { s: 'XS', c: '54cm' },
-                { s: 'Small', c: '56cm' },
-                { s: 'Medium', c: '57cm' },
-                { s: 'Large', c: '58cm' },
-                { s: 'XL', c: '59cm' },
-                { s: '2XL', c: '61cm' },
-              ].map((item, idx) => (
-                <div key={idx} className="flex justify-between text-sm">
-                  <span className="text-gray-400">{item.s}</span>
-                  <span className="text-white font-mono">{item.c}</span>
+              {/* Measurement Breakdowns */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Athletic Caps */}
+                <div className="bg-zinc-950/60 p-6 border border-zinc-800/80 flex flex-col justify-between">
+                  <div>
+                    <h4 className="text-white font-bold mb-4 uppercase tracking-wider text-xs">
+                      Standard Athletic Cap Fit
+                    </h4>
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-center border-b border-zinc-800/80 pb-3">
+                        <span className="text-zinc-300 font-bold text-sm">Adult</span>
+                        <span className="text-[#E72F07] font-mono font-bold text-sm">54 - 60 cm</span>
+                      </div>
+                      <div className="flex justify-between items-center border-b border-zinc-800/80 pb-3">
+                        <span className="text-zinc-300 font-bold text-sm">Junior</span>
+                        <span className="text-[#E72F07] font-mono font-bold text-sm">48 - 55 cm</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-xs text-zinc-500 italic mt-6">
+                    One size fits most with adjustable closure systems.
+                  </p>
                 </div>
-              ))}
+
+                {/* Panama Hat Sizing */}
+                <div className="bg-zinc-950/60 p-6 border border-zinc-800/80">
+                  <h4 className="text-white font-bold mb-4 uppercase tracking-wider text-xs">
+                    Panama Hat Sizing
+                  </h4>
+                  <div className="space-y-2">
+                    {panamaSizes.map((item, idx) => (
+                      <div key={idx} className="flex justify-between text-xs py-1.5 border-b border-zinc-800/50 last:border-0">
+                        <span className="text-zinc-400 font-medium">{item.size}</span>
+                        <span className="text-white font-mono font-bold">{item.cm}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-);
+      )}
+    </>
+  );
+};
 
-const Marquee = ({ children, speed = 30, direction = 'left' }: { children: React.ReactNode, speed?: number, direction?: 'left' | 'right' }) => (
-  <div className="flex overflow-hidden select-none gap-6 group">
+
+
+import { Award } from 'lucide-react';
+import { BestSellers2Section } from '../components/BestSellers2Section';
+
+interface MarqueeProps {
+  children: React.ReactNode;
+  speed?: number;
+}
+
+const Marquee = ({ children, speed = 35 }: MarqueeProps) => (
+  <div className="flex overflow-hidden select-none gap-5 group relative py-2">
     <motion.div
-      animate={{
-        x: direction === 'left' ? ['0%', '-50%'] : ['-50%', '0%'],
-      }}
-      transition={{
-        duration: speed,
-        ease: "linear",
-        repeat: Infinity,
-      }}
-      className="flex flex-nowrap gap-6 shrink-0"
+      animate={{ x: ['0%', '-50%'] }}
+      transition={{ duration: speed, ease: 'linear', repeat: Infinity }}
+      className="flex flex-nowrap gap-5 shrink-0"
     >
       {children}
       {children}
@@ -876,83 +1203,81 @@ const Marquee = ({ children, speed = 30, direction = 'left' }: { children: React
   </div>
 );
 
-const PortfolioSection = () => (
-  <section className="py-24 bg-black overflow-hidden">
-    <div className="max-w-7xl mx-auto px-6 mb-20">
-      <div className="text-center">
-        <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter mb-6">TRUSTED BY <span className="text-red-600">THE BEST</span></h2>
-        <p className="text-gray-400 max-w-2xl mx-auto">From global retail giants to professional sports associations and teams.</p>
-      </div>
-    </div>
+export const PortfolioSection = () => {
+  const [activeTab, setActiveTab] = useState<'brands' | 'teams' | 'associations'>('brands');
 
-    <div className="space-y-20">
-      {/* Global Brands Marquee */}
-      <div className="space-y-8">
-        <h3 className="text-xs font-bold text-gray-600 uppercase tracking-[0.3em] text-center">Global Brands</h3>
-        <Marquee speed={40}>
-          {CLIENTS.brands.map((brand, idx) => (
-            <div key={idx} className="w-64 bg-zinc-900/30 border border-zinc-800 rounded-2xl p-6 flex flex-col items-center justify-center gap-4 hover:bg-zinc-900 hover:border-red-600/30 transition-all shrink-0">
-              <div className="w-full aspect-square bg-zinc-800 rounded-xl overflow-hidden relative">
-                <img 
-                  src={`${brand.img1}`} 
-                  alt={brand}
-                  className="w-full h-full object-cover opacity-50 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-500"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-              <span className="text-[10px] text-gray-500 font-black uppercase tracking-tighter text-center group-hover:text-white transition-colors">{brand.name}</span>
-            </div>
-          ))}
-        </Marquee>
-      </div>
+  const tabs = [
+    { id: 'brands', label: 'Global Brands', data: CLIENTS.brands },
+    { id: 'teams', label: 'Teams', data: CLIENTS.teams },
+    { id: 'associations', label: 'Associations', data: CLIENTS.associations },
+  ] as const;
 
-      {/* Professional Team Portfolio Marquee */}
-      <div className="space-y-8">
-        <h3 className="text-xs font-bold text-gray-600 uppercase tracking-[0.3em] text-center">Professional Team Portfolio</h3>
-        <Marquee speed={60} direction="right">
-          {CLIENTS.teams.map((team, idx) => (
-            <div key={idx} className="w-56 group bg-zinc-900/30 border border-zinc-800 rounded-2xl overflow-hidden hover:border-red-600/30 transition-all shrink-0">
-              <div className="aspect-square bg-zinc-800 overflow-hidden relative">
-                <img 
-                  src={`${team.img1}`} 
-                  alt={team}
-                  className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
-              </div>
-              <div className="p-4 text-center bg-zinc-900">
-                <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest block leading-tight group-hover:text-white transition-colors">{team.name}</span>
-              </div>
-            </div>
-          ))}
-        </Marquee>
-      </div>
+  const currentData = CLIENTS[activeTab] || [];
 
-      {/* Professional Associations Marquee */}
-      <div className="space-y-8">
-        <h3 className="text-xs font-bold text-gray-600 uppercase tracking-[0.3em] text-center">Professional Associations</h3>
-        <Marquee speed={50}>
-          {CLIENTS.associations.map((assoc, idx) => (
-            <div key={idx} className="w-72 group bg-zinc-900/30 border border-zinc-800 rounded-2xl overflow-hidden hover:border-red-600/30 transition-all flex flex-col shrink-0">
-              <div className="aspect-[16/9] bg-zinc-800 overflow-hidden relative">
-                <img 
-                  src={`${assoc.img1}`} 
-                  alt={assoc}
-                  className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-              <div className="p-4 text-center bg-zinc-900 flex-1 flex items-center justify-center">
-                <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest leading-tight group-hover:text-white transition-colors">{assoc.name}</span>
-              </div>
-            </div>
-          ))}
-        </Marquee>
+  return (
+    <section className="py-12 md:py-16 bg-zinc-950 relative overflow-hidden">
+      {/* Background Subtle Red Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[250px] bg-[#E72F07]/5 blur-[120px] pointer-events-none rounded-full" />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        {/* Header + Tabs in Same Line */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 border-b border-zinc-800/80 pb-6">
+          <div>
+            <h2 className="text-2xl md:text-4xl font-anton text-white tracking-tight">
+              TRUSTED BY THE BEST
+            </h2>
+          </div>
+
+          {/* Dark Filter Tabs Aligned Right */}
+          <div className="inline-flex p-1 bg-zinc-900 border border-zinc-800 rounded-xl gap-1 shrink-0 self-start md:self-auto">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`px-4 py-2 rounded-lg text-xs font-extrabold uppercase tracking-wider transition-all ${
+                  activeTab === tab.id
+                    ? 'bg-zinc-800 text-white shadow-md'
+                    : 'text-zinc-400 hover:text-white'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Large Image Dark Marquee */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.98 }}
+            transition={{ duration: 0.2 }}
+          >
+            <Marquee speed={30}>
+              {currentData.map((item: any, idx: number) => (
+                <div
+                  key={idx}
+                  className="w-44 h-44 md:w-52 md:h-52 group bg-zinc-900/60 border border-zinc-800/80 rounded-2xl p-2 hover:border-[#E72F07]/50 hover:bg-zinc-900 hover:shadow-2xl hover:shadow-red-950/20 transition-all duration-300 shrink-0 select-none overflow-hidden"
+                >
+                  <div className="w-full h-full bg-zinc-950 rounded-xl overflow-hidden relative">
+                    <img
+                      src={`${item.img1}`}
+                      alt={item.name || 'Client logo'}
+                      className="w-full h-full object-cover opacity-75 hover:opacity-100 hover:scale-105 transition-all duration-500"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                </div>
+              ))}
+            </Marquee>
+          </motion.div>
+        </AnimatePresence>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const ContactSection = () => (
   <section id="contact" className="py-24 bg-zinc-950">
@@ -1035,13 +1360,15 @@ export function KragCaps({ onQuickView,
     <main>
       <HeroBanner />
       {/* <About /> */}
-       <BestSellersSection
-              products={HEADWEAR}
-              onQuickView={onQuickView}
-              onAddToCart={onAddToCart}
-              onToggleWishlist={onToggleWishlist}
-              wishlistIds={wishlistIds}
-            />
+      <BestSellers2Section
+  subtitle="KRAGCAPS"
+  title="Headwear That Moves"
+  products={HEADWEAR}
+  onQuickView={onQuickView}
+  onAddToCart={onAddToCart}
+  onToggleWishlist={onToggleWishlist}
+  wishlistIds={wishlistIds}
+/>
       <StylesSection />
       <CustomizationSection />
       <FabricSection />

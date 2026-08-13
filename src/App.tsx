@@ -244,6 +244,7 @@ import { BEST_SELLERS, ACCESSORIES, BAGS } from './data/mockData';
 import { Product, CartItem } from './types';
 import { About } from './pages/About';
 import { KragCaps } from './pages/KragCaps';
+import { Creatory } from './pages/Creatory';
 
 export default function App() {
   const navigate = useNavigate();
@@ -371,6 +372,13 @@ export default function App() {
 
         <Route path="/about" element={<About />} />
         <Route path="/krag-caps" element={<KragCaps 
+              onQuickView={(p) => setSelectedQuickViewProduct(p)}
+              onAddToCart={handleAddToCart}
+              onToggleWishlist={handleToggleWishlist}
+              wishlistIds={wishlistIds}
+        
+        />} />
+        <Route path="/creatory" element={<Creatory 
               onQuickView={(p) => setSelectedQuickViewProduct(p)}
               onAddToCart={handleAddToCart}
               onToggleWishlist={handleToggleWishlist}

@@ -56,11 +56,11 @@ export const FABRICS = [
       { name: 'Crown Knit', colors: [{cn:'SKY.BLUE',img1:'https://kragbuzzsports.com/wp-content/uploads/2026/04/cap63.png'}, {cn:'GREY',img1:'https://kragbuzzsports.com/wp-content/uploads/2026/04/cap66.png'}, {cn:'RED',img1:'https://kragbuzzsports.com/wp-content/uploads/2026/04/cap67.png'}] },
       { name: 'Waffle', colors: [{cn:'SKY.BLUE',img1:'https://kragbuzzsports.com/wp-content/uploads/2026/04/cap63.png'}, {cn:'GREEN',img1:'https://kragbuzzsports.com/wp-content/uploads/2026/04/cap68.png'}, {cn:'GREY',img1:'https://kragbuzzsports.com/wp-content/uploads/2026/04/cap69.png'}] },
       { name: 'Diamond Knit', colors: [{cn:'RED',img1:'https://kragbuzzsports.com/wp-content/uploads/2026/04/cap67.png'}, {cn:'GREEN',img1:'https://kragbuzzsports.com/wp-content/uploads/2026/04/cap68.png'}, {cn:'Blue',img1:'https://kragbuzzsports.com/wp-content/uploads/2026/04/cap60.png'}] },
-      { name: 'Diagnol', colors: [] },
-      { name: 'Tin Tin', colors: [] },
-      { name: 'Micro Matty', colors: [] },
-      { name: 'P. Dryfit', colors: [] },
-      { name: 'Caramel', colors: [] }
+      // { name: 'Diagnol', colors: [] },
+      // { name: 'Tin Tin', colors: [] },
+      // { name: 'Micro Matty', colors: [] },
+      // { name: 'P. Dryfit', colors: [] },
+      // { name: 'Caramel', colors: [] }
     ] 
   },
   { 
