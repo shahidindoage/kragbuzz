@@ -145,7 +145,7 @@ export const ACCESSORIES: Product[] = [
     reviewsCount: 88,
     features: ['UPF 50+ Sun defense rating', 'Pliable semi-curved brim', 'Hydrophobic surface treatment']
   },
- {
+  {
     id: 'acc-3',
     name: 'SLEEVELESS',
     category: 'accessories',
@@ -163,8 +163,7 @@ export const ACCESSORIES: Product[] = [
     rating: 4.9,
     reviewsCount: 88,
     features: ['UPF 50+ Sun defense rating', 'Pliable semi-curved brim', 'Hydrophobic surface treatment']
-  },
-
+  }
 ];
 
 export const KIDS: Product[] = [
@@ -210,27 +209,6 @@ export const KIDS: Product[] = [
     isNew: true,
     features: ['Quick-dry breathable mesh lining', 'Zippered secure side pockets', 'Adjustable elastic drawstring waistband']
   },
-   {
-    id: 'kids-3',
-    name: 'PENCIL',
-    category: 'kids',
-    categoryLabel: 'KIDS / T-SHIRT',
-    price: 699.00,
-    originalPrice: 999.00,
-    description: 'High-performance activewear tracksuit engineered for young athletes. Ultra-durable 4-way stretch fabric with moisture transport.',
-    colors: [
-      { name: 'Onyx Black', hex: '#121212' },
-      { name: 'Royal Blue', hex: '#1d4ed8' },
-      { name: 'Crimson Red', hex: '#dc2626' }
-    ],
-    sizes: ['4Y', '6Y', '8Y', '10Y', '12Y', '14Y'],
-    image: 'https://kragbuzz.com/cdn/shop/files/DSC02046_23b113b4-532d-49c6-a7b3-a5cb6e7c1c69.jpg?v=1783669590&width=720',
-    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/DSC02047_a9bf4196-432a-4749-b7ef-dd95ca8b4b46.jpg?v=1783669590&width=720',
-    rating: 4.9,
-    reviewsCount: 78,
-    isNew: true,
-    features: ['Quick-dry breathable mesh lining', 'Zippered secure side pockets', 'Adjustable elastic drawstring waistband']
-  },
   {
     id: 'kids-3',
     name: 'PENCIL',
@@ -253,7 +231,7 @@ export const KIDS: Product[] = [
     features: ['Quick-dry breathable mesh lining', 'Zippered secure side pockets', 'Adjustable elastic drawstring waistband']
   },
   {
-    id: 'kids-3',
+    id: 'kids-4',
     name: 'PENCIL',
     category: 'kids',
     categoryLabel: 'KIDS / T-SHIRT',
@@ -273,7 +251,27 @@ export const KIDS: Product[] = [
     isNew: true,
     features: ['Quick-dry breathable mesh lining', 'Zippered secure side pockets', 'Adjustable elastic drawstring waistband']
   },
-
+  {
+    id: 'kids-5',
+    name: 'PENCIL',
+    category: 'kids',
+    categoryLabel: 'KIDS / T-SHIRT',
+    price: 699.00,
+    originalPrice: 999.00,
+    description: 'High-performance activewear tracksuit engineered for young athletes. Ultra-durable 4-way stretch fabric with moisture transport.',
+    colors: [
+      { name: 'Onyx Black', hex: '#121212' },
+      { name: 'Royal Blue', hex: '#1d4ed8' },
+      { name: 'Crimson Red', hex: '#dc2626' }
+    ],
+    sizes: ['4Y', '6Y', '8Y', '10Y', '12Y', '14Y'],
+    image: 'https://kragbuzz.com/cdn/shop/files/DSC02046_23b113b4-532d-49c6-a7b3-a5cb6e7c1c69.jpg?v=1783669590&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/DSC02047_a9bf4196-432a-4749-b7ef-dd95ca8b4b46.jpg?v=1783669590&width=720',
+    rating: 4.9,
+    reviewsCount: 78,
+    isNew: true,
+    features: ['Quick-dry breathable mesh lining', 'Zippered secure side pockets', 'Adjustable elastic drawstring waistband']
+  }
 ];
 
 export const HEADWEAR: Product[] = [
@@ -299,7 +297,7 @@ export const HEADWEAR: Product[] = [
     isBestSeller: true,
     features: ['Laser-cut ventilation ports', 'Hydrophobic water-repellent treatment', 'Custom anti-bacterial sweatband']
   },
- {
+  {
     id: 'headwear-2',
     name: 'Twist CAP',
     category: 'headwear',
@@ -343,7 +341,7 @@ export const HEADWEAR: Product[] = [
     isBestSeller: true,
     features: ['Laser-cut ventilation ports', 'Hydrophobic water-repellent treatment', 'Custom anti-bacterial sweatband']
   },
-   {
+  {
     id: 'headwear-4',
     name: 'Twist CAP',
     category: 'headwear',
@@ -364,7 +362,7 @@ export const HEADWEAR: Product[] = [
     isNew: true,
     isBestSeller: true,
     features: ['Laser-cut ventilation ports', 'Hydrophobic water-repellent treatment', 'Custom anti-bacterial sweatband']
-  },
+  }
 ];
 
 export const CRICKET: Product[] = [
@@ -389,7 +387,7 @@ export const CRICKET: Product[] = [
     isBestSeller: true,
     features: ['Grade 1+ Air-dried English Willow', '39mm+ Ultra-thick power edges', 'Consolidated toe guard for moisture defense']
   },
- {
+  {
     id: 'cricket-2',
     name: 'LEGEND WHITE',
     category: 'cricket',
@@ -410,7 +408,7 @@ export const CRICKET: Product[] = [
     isBestSeller: true,
     features: ['Grade 1+ Air-dried English Willow', '39mm+ Ultra-thick power edges', 'Consolidated toe guard for moisture defense']
   },
-   {
+  {
     id: 'cricket-3',
     name: 'LEGEND WHITE',
     category: 'cricket',
@@ -430,7 +428,7 @@ export const CRICKET: Product[] = [
     isNew: true,
     isBestSeller: true,
     features: ['Grade 1+ Air-dried English Willow', '39mm+ Ultra-thick power edges', 'Consolidated toe guard for moisture defense']
-  },
+  }
 ];
 
 export const BAGS: Product[] = [
@@ -486,7 +484,7 @@ export const BAGS: Product[] = [
       'Material': '900D TPU Coated Ballistic'
     }
   },
-   {
+  {
     id: 'bag-3',
     name: 'REVERSE BAGPACK',
     category: 'bags',
@@ -511,7 +509,15 @@ export const BAGS: Product[] = [
       'Dimensions': '58 x 34 x 28 cm',
       'Material': '900D TPU Coated Ballistic'
     }
-  },
+  }
+];
+
+export const ALL_PRODUCTS: Product[] = [
+  ...ACCESSORIES,
+  ...KIDS,
+  ...HEADWEAR,
+  ...CRICKET,
+  ...BAGS
 ];
 
 export const REVIEWS: Review[] = [

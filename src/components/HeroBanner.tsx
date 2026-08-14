@@ -117,53 +117,36 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
+
+
 import 'swiper/css';
 import 'swiper/css/effect-fade';
-import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-const HERO_SLIDES = [
-  {
-    id: 1,
-    titleTop: 'SPORTS CAPS',
-    titleBottom: 'COLLECTION',
-    description: 'Durable. Stylish. Built for every move. From the gym to game day—carry your gear with confidence.',
-    bgImage: '/capsbg.png',
-    modelImage: '/capscutout.png',
-    buttonText: 'EXPLORE COLLECTION',
-    accentColor: '#E72F07',
-  },
-  {
-    id: 2,
-    titleTop: 'URBAN STREET',
-    titleBottom: 'HEADWEAR',
-    description: 'Elevate your everyday look with modern 5-panel cuts and premium breathable materials.',
-    bgImage: '/capsbg2.png',
-    modelImage: '/capscutout2.png',
-    buttonText: 'DISCOVER STYLES',
-    accentColor: '#10B981',
-  },
-  {
-    id: 3,
-    titleTop: 'PERFORMANCE',
-    titleBottom: 'PRO SERIES',
-    description: 'Engineered moisture-wicking fabrics paired with laser-cut ventilation for maximum comfort.',
-    bgImage: '/capsbg3.png',
-    modelImage: '/capscutout3.png',
-    buttonText: 'SHOP PRO SERIES',
-    accentColor: '#3B82F6',
-  },
-];
-
 export const HeroBannerSlider = () => {
-  const bannerImages = [
-    'hero2.png',
-    'hero3.png',
-    'kk.png',
+  // Desktop Banners
+  const desktopBannerImages = [
+    '/hero1.0.png',
+    '/hero2.0.png',
+    '/hero3.0.png',
+  ];
+
+  // Mobile Banners
+  const mobileBannerImages = [
+    '/hero1.0m.png',
+    '/hero2.0m.png',
+    '/hero3.0m.png',
+  ];
+
+  // Slide Links
+  const bannerLinks = [
+    'https://kragbuzz.com/collections/men',
+    'https://kragbuzz.com/collections/women',
+    'https://kragbuzz.com/collections/accessories',
   ];
 
   return (
-    <section className="relative w-full h-[85vh] min-h-[500px] select-none overflow-hidden">
+    <section className="relative w-full h-[650px] md:h-[502px] select-none overflow-hidden bg-black">
       <Swiper
         modules={[Autoplay, EffectFade, Pagination]}
         effect="fade"
@@ -172,28 +155,79 @@ export const HeroBannerSlider = () => {
         autoplay={{ delay: 5000, disableOnInteraction: false }}
         pagination={{
           clickable: true,
-          el: '.hero-pagination',
+          el: '#hero-dots-container',
+          bulletClass: 'hero-dot',
+          bulletActiveClass: 'hero-dot-active',
         }}
         className="w-full h-full"
       >
-        {bannerImages.map((image, index) => (
-          <SwiperSlide key={index} className="w-full h-full">
-            <img
-              src={image}
-              alt={`Banner ${index + 1}`}
-              className="w-full h-full object-cover object-center"
-            />
+        {desktopBannerImages.map((desktopImg, index) => (
+          <SwiperSlide key={index} className="w-full h-full relative">
+            <a
+              href={bannerLinks[index] || '#'}
+              className="block w-full h-full cursor-pointer"
+            >
+              {/* Mobile Banner Image */}
+              <img
+                src={mobileBannerImages[index] || desktopImg}
+                alt={`Banner ${index + 1} Mobile`}
+                className="md:hidden w-full h-full object-cover object-center"
+              />
+
+              {/* Desktop Banner Image */}
+              <img
+                src={desktopImg}
+                alt={`Banner ${index + 1} Desktop`}
+                className="hidden md:block w-full h-full object-cover object-center"
+              />
+            </a>
           </SwiperSlide>
         ))}
       </Swiper>
 
-      {/* Glassy Red Dots */}
-      <div className="hero-pagination !absolute !right-6 !left-auto !top-1/2 !-translate-y-1/2 !bottom-auto !z-30 !flex !flex-col !items-center !gap-3 !w-auto [&_.swiper-pagination-bullet]:!bg-red-500/40 [&_.swiper-pagination-bullet]:!backdrop-blur-md [&_.swiper-pagination-bullet]:!border [&_.swiper-pagination-bullet]:!border-white/40 [&_.swiper-pagination-bullet]:!shadow-lg [&_.swiper-pagination-bullet]:!w-2 [&_.swiper-pagination-bullet]:!h-2 [&_.swiper-pagination-bullet]:!m-0 [&_.swiper-pagination-bullet]:!opacity-80 [&_.swiper-pagination-bullet-active]:!bg-red-600/90 [&_.swiper-pagination-bullet-active]:!border-white/80 [&_.swiper-pagination-bullet-active]:!w-4 [&_.swiper-pagination-bullet-active]:!h-4 [&_.swiper-pagination-bullet-active]:!opacity-100 [&_.swiper-pagination-bullet]:transition-all [&_.swiper-pagination-bullet]:duration-300" />
+      {/* Red Glassy Dots Container (Placed outside Swiper DOM tree to guarantee top z-index layer) */}
+      <div 
+        id="hero-dots-container"
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-3 w-auto pointer-events-auto"
+      />
+
+      {/* Embedded CSS rules forcing Swiper layout override */}
+      <style>{`
+        #hero-dots-container.swiper-pagination-bullets {
+          top: 50%;
+          right: 1.5rem;
+          bottom: auto;
+          left: auto;
+          width: auto;
+          transform: translateY(-50%);
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          z-index: 50;
+        }
+        .hero-dot {
+          width: 10px;
+          height: 10px;
+          background-color: #E72F07;
+          border: 1px solid #ffffff;
+          border-radius: 9999px;
+          cursor: pointer;
+          opacity: 0.6;
+          transition: all 300ms ease;
+          display: block;
+        }
+        .hero-dot-active {
+          width: 14px;
+          height: 14px;
+          background-color: #E72F07;
+          border-color: #ffffff;
+          opacity: 1;
+          box-shadow: 0 0 12px #E72F07;
+        }
+      `}</style>
     </section>
   );
 };
-
-
 
 export const TrustedByMarquee = () => {
   const BRAND_LOGOS = [
@@ -214,7 +248,7 @@ export const TrustedByMarquee = () => {
         {/* Left Portion: Full Height Red Background */}
         <div className="bg-red-600 px-8 py-6 flex items-center justify-center shrink-0">
           <span className="text-sm font-black uppercase tracking-widest text-white whitespace-nowrap">
-            Trusted By
+            Featured In
           </span>
         </div>
 
@@ -246,9 +280,11 @@ export const TrustedByMarquee = () => {
 };
 
 
+
 interface CategoryCardProps {
   title: string;
   imageSrc: string;
+  link: string;
   className?: string;
   onSelectCategory?: (category: string) => void;
 }
@@ -256,29 +292,37 @@ interface CategoryCardProps {
 const CategoryCard: React.FC<CategoryCardProps> = ({
   title,
   imageSrc,
+  link,
   className = '',
   onSelectCategory,
 }) => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (onSelectCategory) {
+      onSelectCategory(title.toLowerCase());
+    }
+  };
+
   return (
-    <div
-      onClick={() => onSelectCategory && onSelectCategory(title.toLowerCase())}
-      className={`relative group overflow-hidden cursor-pointer w-full h-full rounded-sm ${className}`}
+    <a
+      href={link}
+      onClick={handleClick}
+      className={`relative group overflow-hidden cursor-pointer w-full h-full rounded-sm block ${className}`}
     >
       {/* Background Image with Hover Zoom */}
       <img
         src={imageSrc}
         alt={title}
-        className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+        className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105 pointer-events-none"
       />
 
       {/* Subtle Gradient Overlay for Text Readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent pointer-events-none" />
 
       {/* Category Title */}
-      <h3 className="absolute top-4 left-6 text-white font-anton text-2xl sm:text-3xl tracking-tight drop-shadow-md z-10">
+      <h3 className="absolute top-4 left-6 text-white font-anton text-2xl sm:text-3xl tracking-tight drop-shadow-md z-10 pointer-events-none">
         {title}
       </h3>
-    </div>
+    </a>
   );
 };
 
@@ -286,37 +330,53 @@ interface CategoryGridProps {
   onSelectCategory?: (category: string) => void;
 }
 
+interface CategoryItem {
+  title: string;
+  imageSrc: string;
+  link: string;
+  categoryKey: string;
+}
+
 export const CategoryGridSection: React.FC<CategoryGridProps> = ({ onSelectCategory }) => {
-  const categories = [
+  const categories: CategoryItem[] = [
     {
       title: 'Men',
       imageSrc: 'kkmm.png',
+      link: 'https://kragbuzz.com/collections/men',
+      categoryKey: 'men',
     },
     {
       title: 'Women',
       imageSrc: 'ww.png',
+      link: 'https://kragbuzz.com/collections/women',
+      categoryKey: 'women',
     },
     {
       title: 'Bags',
       imageSrc:
         'https://kragbuzz.com/cdn/shop/files/6_757f052b-4ac8-4348-b149-8304a4b1570b.jpg?v=1784984455&width=720',
+      link: 'https://kragbuzz.com/collections/bags',
+      categoryKey: 'bags',
     },
     {
       title: 'Headwear',
       imageSrc: 'headwear.webp',
+      link: '/krag-caps',
+      categoryKey: 'headwear',
     },
   ];
 
   return (
-    <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-      {/* Grid Layout without height restriction bottlenecks */}
+    <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-14">
+      {/* Grid Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
         {/* Left Column - Large Men Card */}
         <div className="aspect-[4/5] lg:aspect-auto lg:h-full w-full min-h-[400px]">
           <CategoryCard
             title={categories[0].title}
             imageSrc={categories[0].imageSrc}
-            onSelectCategory={onSelectCategory}
+            link={categories[0].link}
+            onSelectCategory={() => onSelectCategory?.(categories[0].categoryKey)}
           />
         </div>
 
@@ -327,7 +387,8 @@ export const CategoryGridSection: React.FC<CategoryGridProps> = ({ onSelectCateg
             <CategoryCard
               title={categories[1].title}
               imageSrc={categories[1].imageSrc}
-              onSelectCategory={onSelectCategory}
+              link={categories[1].link}
+              onSelectCategory={() => onSelectCategory?.(categories[1].categoryKey)}
             />
           </div>
 
@@ -336,12 +397,14 @@ export const CategoryGridSection: React.FC<CategoryGridProps> = ({ onSelectCateg
             <CategoryCard
               title={categories[2].title}
               imageSrc={categories[2].imageSrc}
-              onSelectCategory={onSelectCategory}
+              link={categories[2].link}
+              onSelectCategory={() => onSelectCategory?.(categories[2].categoryKey)}
             />
             <CategoryCard
               title={categories[3].title}
               imageSrc={categories[3].imageSrc}
-              onSelectCategory={onSelectCategory}
+              link={categories[3].link}
+              onSelectCategory={() => onSelectCategory?.(categories[3].categoryKey)}
             />
           </div>
         </div>
@@ -422,7 +485,14 @@ export const MultiCategoryProductsSection: React.FC<MultiCategoryProductsSection
     cricket: cricketProducts,
   };
 
-  const currentProducts = productDataMap[activeTab] || [];
+  // Filter products by tab key, with fallback to category/categoryKey attributes on product objects
+  const rawProducts = productDataMap[activeTab] || [];
+  const currentProducts = rawProducts.filter((p) => {
+    if (!p) return false;
+    if (p.categoryKey) return p.categoryKey === activeTab;
+    if (p.category) return p.category.toLowerCase() === activeTab.toLowerCase();
+    return true;
+  });
 
   // Responsive breakpoints
   useEffect(() => {
@@ -441,11 +511,13 @@ export const MultiCategoryProductsSection: React.FC<MultiCategoryProductsSection
   }, []);
 
   const maxIndex = Math.max(0, currentProducts.length - itemsPerPage);
+  const safeIndex = Math.min(currentIndex, maxIndex);
 
-  // Reset index on tab change
-  useEffect(() => {
+  // Switch category tab & reset slider index immediately
+  const handleTabChange = (key: CategoryKey) => {
+    setActiveTab(key);
     setCurrentIndex(0);
-  }, [activeTab]);
+  };
 
   // Auto sliding
   useEffect(() => {
@@ -467,79 +539,44 @@ export const MultiCategoryProductsSection: React.FC<MultiCategoryProductsSection
   };
 
   return (
-    <section id="unified-products-section" className="py-20 sm:py-24 bg-white text-[#313131] relative border-t border-neutral-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="unified-products-section" className="relative border-t border-neutral-200 bg-white py-10 md:py-14 text-[#313131] sm:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Top Header & Subtitle Section */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 border-b border-neutral-200 pb-8">
+        <div className="mb-8 flex flex-col justify-between gap-6 border-b border-neutral-200 pb-8 md:flex-row md:items-end">
           <div>
-            <div className="flex items-center space-x-2 mb-2">
-              <span className="w-2 h-2 rounded-full bg-[#E72F07] inline-block animate-pulse" />
-              <span className="font-inter text-xs font-extrabold tracking-[0.25em] text-[#E72F07] uppercase">
+            <div className="mb-2 flex items-center space-x-2">
+              <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-[#E72F07]" />
+              <span className="font-inter text-xs font-extrabold uppercase tracking-[0.25em] text-[#E72F07]">
                 TRENDING NOW
               </span>
             </div>
             
-            <h2 className="font-anton text-3xl sm:text-5xl lg:text-6xl text-black tracking-wider uppercase">
+            <h2 className="font-anton text-3xl uppercase tracking-wider text-black sm:text-5xl lg:text-6xl">
               NO FLEX. JUST FLOW.
             </h2>
-            {/* <p className="font-inter text-xs text-neutral-500 mt-2 max-w-xl">
-              {CATEGORY_CONFIG[activeTab].tagline}
-            </p> */}
           </div>
 
           {/* Unified Tab Bar */}
-          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 bg-neutral-100 p-1.5 rounded-none border border-neutral-300 self-start md:self-auto">
+          <div className="flex flex-wrap items-center gap-1.5 self-start border border-neutral-300 bg-neutral-100 p-1.5 rounded-none sm:gap-2 md:self-auto">
             {(Object.keys(CATEGORY_CONFIG) as CategoryKey[]).map((key) => {
-              const count = productDataMap[key]?.length || 0;
               const isActive = activeTab === key;
               return (
                 <button
                   key={key}
-                  onClick={() => setActiveTab(key)}
-                  className={`flex items-center space-x-2 px-3.5 sm:px-4 py-2 font-inter text-xs font-bold tracking-widest uppercase transition-all duration-200 cursor-pointer ${
+                  onClick={() => handleTabChange(key)}
+                  className={`flex cursor-pointer items-center space-x-2 px-3.5 py-2 font-inter text-xs font-bold uppercase tracking-widest transition-all duration-200 sm:px-4 ${
                     isActive
                       ? 'bg-black text-white shadow-md'
-                      : 'text-neutral-700 hover:text-black hover:bg-neutral-200'
+                      : 'text-neutral-700 hover:bg-neutral-200 hover:text-black'
                   }`}
                 >
                   <span>{CATEGORY_CONFIG[key].label}</span>
-                  {/* <span
-                    className={`text-[10px] px-1.5 py-0.5 rounded ${
-                      isActive ? 'bg-[#E72F07] text-white' : 'bg-neutral-300 text-neutral-800'
-                    }`}
-                  >
-                    {count}
-                  </span> */}
                 </button>
               );
             })}
           </div>
         </div>
-
-        {/* Status Bar & Slider Arrows */}
-        {/* <div className="flex justify-between items-center mb-6 text-xs font-inter text-neutral-600">
-          <span className="invisible font-mono text-[11px] text-neutral-500 font-semibold uppercase tracking-widest">
-            SHOWING {currentProducts.length} ITEMS
-          </span>
-
-          <div className="flex items-center space-x-2">
-            <button
-              onClick={handlePrev}
-              className="w-9 h-9 bg-white border border-neutral-300 hover:bg-black hover:text-white hover:border-black text-neutral-800 flex items-center justify-center transition-colors cursor-pointer shadow-xs active:scale-95"
-              title="Previous Slide"
-            >
-              <ChevronLeft size={18} />
-            </button>
-            <button
-              onClick={handleNext}
-              className="w-9 h-9 bg-white border border-neutral-300 hover:bg-black hover:text-white hover:border-black text-neutral-800 flex items-center justify-center transition-colors cursor-pointer shadow-xs active:scale-95"
-              title="Next Slide"
-            >
-              <ChevronRight size={18} />
-            </button>
-          </div>
-        </div> */}
 
         {/* Product Carousel Track */}
         <div
@@ -548,8 +585,8 @@ export const MultiCategoryProductsSection: React.FC<MultiCategoryProductsSection
           onMouseLeave={() => setIsPaused(false)}
         >
           <div
-            className="flex transition-transform duration-500 ease-out -mx-3"
-            style={{ transform: `translateX(-${currentIndex * (100 / itemsPerPage)}%)` }}
+            className="-mx-3 flex transition-transform duration-500 ease-out"
+            style={{ transform: `translateX(-${safeIndex * (100 / itemsPerPage)}%)` }}
           >
             {currentProducts.map((product) => {
               const isWishlisted = wishlistIds.includes(product.id);
@@ -557,19 +594,19 @@ export const MultiCategoryProductsSection: React.FC<MultiCategoryProductsSection
               return (
                 <div
                   key={product.id}
-                  className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-3 flex flex-col"
+                  className="w-full flex-shrink-0 px-3 flex flex-col md:w-1/2 lg:w-1/3"
                 >
-                  <div className="bg-white border border-neutral-200 group hover:border-black transition-all duration-300 flex-1 flex flex-col justify-between shadow-xs hover:shadow-md h-full">
+                  <div className="group flex h-full flex-1 flex-col justify-between border border-neutral-200 bg-white shadow-xs transition-all duration-300 hover:border-black hover:shadow-md">
                     {/* Image Container */}
                     <div
-                      className="relative aspect-square bg-neutral-100 overflow-hidden cursor-pointer"
+                      className="relative aspect-square cursor-pointer overflow-hidden bg-neutral-100"
                       onClick={() => onQuickView(product)}
                     >
                       <img
                         src={product.image}
                         alt={product.name}
                         referrerPolicy="no-referrer"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
 
                       {product.secondaryImage && (
@@ -577,12 +614,12 @@ export const MultiCategoryProductsSection: React.FC<MultiCategoryProductsSection
                           src={product.secondaryImage}
                           alt={product.name}
                           referrerPolicy="no-referrer"
-                          className="w-full h-full object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                          className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                         />
                       )}
 
                       {product.isNew && (
-                        <span className="absolute top-3 left-3 z-10 px-2.5 py-1 bg-[#E72F07] text-white font-inter text-[10px] font-extrabold uppercase tracking-widest">
+                        <span className="absolute top-3 left-3 z-10 bg-[#E72F07] px-2.5 py-1 font-inter text-[10px] font-extrabold uppercase tracking-widest text-white">
                           NEW DROP
                         </span>
                       )}
@@ -592,22 +629,22 @@ export const MultiCategoryProductsSection: React.FC<MultiCategoryProductsSection
                           e.stopPropagation();
                           onToggleWishlist(product);
                         }}
-                        className={`absolute top-3 right-3 z-10 w-9 h-9 rounded-full flex items-center justify-center backdrop-blur-md transition-all ${
+                        className={`absolute top-3 right-3 z-10 flex h-9 w-9 items-center justify-center rounded-full backdrop-blur-md transition-all ${
                           isWishlisted
                             ? 'bg-red-600 text-white shadow-sm'
-                            : 'bg-white/90 text-black border border-neutral-200 hover:bg-black hover:text-white'
+                            : 'border border-neutral-200 bg-white/90 text-black hover:bg-black hover:text-white'
                         }`}
                       >
                         <Heart size={16} className={isWishlisted ? 'fill-white' : ''} />
                       </button>
 
-                      <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-white via-white/95 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-300 flex space-x-2">
+                      <div className="absolute inset-x-0 bottom-0 flex translate-y-full space-x-2 bg-gradient-to-t from-white via-white/95 to-transparent p-4 transition-transform duration-300 group-hover:translate-y-0">
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
                             onQuickView(product);
                           }}
-                          className="flex-1 py-2.5 bg-black text-white font-inter font-bold text-xs tracking-wider uppercase hover:bg-neutral-800 transition-colors flex items-center justify-center space-x-1"
+                          className="flex flex-1 items-center justify-center space-x-1 bg-black py-2.5 font-inter text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-neutral-800"
                         >
                           <Eye size={14} />
                           <span>VIEW SPECS</span>
@@ -621,7 +658,7 @@ export const MultiCategoryProductsSection: React.FC<MultiCategoryProductsSection
                               product.sizes[0] || 'Standard'
                             );
                           }}
-                          className="p-2.5 bg-white border border-neutral-300 text-black hover:bg-neutral-100 transition-colors"
+                          className="border border-neutral-300 bg-white p-2.5 text-black transition-colors hover:bg-neutral-100"
                           title="Quick Add to Bag"
                         >
                           <ShoppingBag size={16} />
@@ -630,30 +667,30 @@ export const MultiCategoryProductsSection: React.FC<MultiCategoryProductsSection
                     </div>
 
                     {/* Product Details */}
-                    <div className="p-6 space-y-3 flex-1 flex flex-col justify-between bg-white">
+                    <div className="flex flex-1 flex-col justify-between bg-white p-6 space-y-3">
                       <div>
-                        <div className="flex justify-between items-center text-[10px] font-inter font-bold text-neutral-600 tracking-widest uppercase mb-1">
+                        <div className="mb-1 flex items-center justify-between font-inter text-[10px] font-bold uppercase tracking-widest text-neutral-600">
                           <span>{product.categoryLabel}</span>
                           <span className="flex items-center text-amber-500">
-                            <Star size={12} className="fill-amber-400 mr-1 text-amber-500" />
+                            <Star size={12} className="mr-1 fill-amber-400 text-amber-500" />
                             {product.rating}
                           </span>
                         </div>
 
                         <h3
                           onClick={() => onQuickView(product)}
-                          className="font-anton text-lg text-black tracking-wide uppercase group-hover:text-neutral-600 cursor-pointer transition-colors"
+                          className="font-anton text-lg uppercase tracking-wide text-black transition-colors cursor-pointer group-hover:text-neutral-600"
                         >
                           {product.name}
                         </h3>
                       </div>
 
-                      <div className="pt-3 border-t border-neutral-100 flex items-center justify-between">
+                      <div className="flex items-center justify-between border-t border-neutral-100 pt-3">
                         <div className="flex space-x-1.5">
                           {product.colors.map((c) => (
                             <span
                               key={c.name}
-                              className="w-3.5 h-3.5 rounded-full border border-neutral-300 shadow-2xs"
+                              className="h-3.5 w-3.5 rounded-full border border-neutral-300 shadow-2xs"
                               style={{ backgroundColor: c.hex }}
                               title={c.name}
                             />
@@ -681,13 +718,13 @@ export const MultiCategoryProductsSection: React.FC<MultiCategoryProductsSection
 
         {/* Carousel Indicators */}
         {maxIndex > 0 && (
-          <div className="flex justify-center items-center space-x-2 mt-8">
+          <div className="mt-8 flex items-center justify-center space-x-2">
             {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
-                className={`h-1.5 transition-all cursor-pointer ${
-                  currentIndex === idx ? 'w-8 bg-black' : 'w-2 bg-neutral-300 hover:bg-neutral-400'
+                className={`h-1.5 cursor-pointer transition-all ${
+                  safeIndex === idx ? 'w-8 bg-black' : 'w-2 bg-neutral-300 hover:bg-neutral-400'
                 }`}
                 title={`Go to slide ${idx + 1}`}
               />
@@ -807,7 +844,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
   };
 
   return (
-    <section className="py-20 sm:py-24 bg-white text-[#313131] border-t border-neutral-200">
+    <section className="py-10 sm:py-14 bg-white text-[#313131] border-t border-neutral-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

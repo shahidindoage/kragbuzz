@@ -47,11 +47,11 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   // Nav menu links configuration
   const navLinks = [
-    { type: 'text', label: 'Men', target: 'man-woman-banner' },
-    { type: 'text', label: 'Women', target: 'man-woman-banner' },
-    { type: 'text', label: 'Accessories', target: 'accessories-banner' },
-    { type: 'text', label: 'Bags', target: 'bags-banner' },
-    { type: 'text', label: 'Cricket', target: 'cricket-banner' },
+    { type: 'text', label: 'Men', target: 'https://kragbuzz.com/collections/men' },
+    { type: 'text', label: 'Women', target: 'https://kragbuzz.com/collections/women' },
+    { type: 'text', label: 'Accessories', target: 'https://kragbuzz.com/collections/accessories' },
+    { type: 'text', label: 'Bags', target: 'https://kragbuzz.com/collections/bags' },
+    { type: 'text', label: 'Cricket', target: 'https://kragbuzz.com/collections/cricket-set' },
     {
       type: 'creatory',
       label: 'The Creatory',
@@ -111,20 +111,9 @@ export const Navbar: React.FC<NavbarProps> = ({
           />
         </div>
 
-        <header className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl w-full mx-auto flex items-center justify-between gap-4 h-full">
-          {/* Left Side: Mobile Hamburger & Logo + Desktop Navigation */}
-          <div className="flex items-center space-x-4 xl:space-x-8 h-full">
-            {/* Mobile Hamburger Button */}
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="lg:hidden flex items-center space-x-2 px-2.5 py-1.5 transition-all cursor-pointer font-inter text-xs font-bold tracking-widest uppercase border border-neutral-200 bg-neutral-100/90 hover:bg-black hover:text-white text-black shadow-xs relative z-50"
-              aria-label="Toggle Navigation Menu"
-            >
-              {menuOpen ? <X size={20} /> : <Menu size={20} />}
-              <span className="hidden sm:inline-block">{menuOpen ? 'CLOSE' : 'MENU'}</span>
-            </button>
-
-            {/* Main Brand Logo */}
+        <header className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl w-full mx-auto flex items-center justify-between gap-2 sm:gap-4 h-full">
+          {/* LEFT SIDE: Brand Logo */}
+          <div className="flex items-center h-full">
             <Link
               to="/"
               onClick={() => {
@@ -136,13 +125,13 @@ export const Navbar: React.FC<NavbarProps> = ({
               <img
                 src="https://vrfacwizigigcpowkrye.supabase.co/storage/v1/object/public/General/KKLG.png"
                 alt="Logo"
-                className="h-16 sm:h-20 lg:h-22 xl:h-24 w-auto max-h-[140%] object-contain origin-left group-hover:scale-105 transition-transform drop-shadow-xs py-0.5"
+                className="h-12 sm:h-20 lg:h-22 xl:h-24 w-auto max-h-[140%] object-contain origin-left group-hover:scale-105 transition-transform drop-shadow-xs py-0.5"
                 referrerPolicy="no-referrer"
               />
             </Link>
 
             {/* Desktop Navigation Menu Links */}
-            <nav className="hidden lg:flex items-center space-x-4 xl:space-x-6 h-full">
+            <nav className="hidden lg:flex items-center space-x-4 xl:space-x-6 h-full ml-6 xl:ml-8">
               {navLinks.map((link, index) => (
                 <Link
                   to={link.target}
@@ -170,21 +159,21 @@ export const Navbar: React.FC<NavbarProps> = ({
             </nav>
           </div>
 
-          {/* Right Side: Search, Profile & Cart Bag */}
-          <div className="flex items-center space-x-2 sm:space-x-3 relative z-50">
+          {/* RIGHT SIDE: Action Controls (Search, Account, Bag, Mobile Hamburger) */}
+          <div className="flex items-center space-x-1.5 sm:space-x-3 relative z-50">
             {/* Search Button */}
             <button
               onClick={onSearchClick}
-              className="transition-colors p-2 text-black hover:text-red-600 cursor-pointer rounded-full hover:bg-black/5"
+              className="hidden md:block transition-colors p-1.5 sm:p-2 text-black hover:text-red-600 cursor-pointer rounded-full hover:bg-black/5"
               title="Search"
               aria-label="Search"
             >
               <Search size={20} />
             </button>
 
-            {/* Profile Button */}
+            {/* Account Profile Button (Desktop) */}
             <button
-              className="transition-colors p-2 text-black hover:text-red-600 cursor-pointer rounded-full hover:bg-black/5"
+              className="hidden sm:flex transition-colors p-2 text-black hover:text-red-600 cursor-pointer rounded-full hover:bg-black/5"
               title="Account Profile"
               aria-label="Account Profile"
             >
@@ -197,7 +186,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setMenuOpen(false);
                 onOpenCart();
               }}
-              className="flex items-center space-x-2 px-3 py-1.5 font-inter text-xs font-bold tracking-wider uppercase transition-all shadow-none sm:shadow-sm bg-black text-white hover:bg-neutral-800 cursor-pointer"
+              className="flex items-center space-x-1.5 sm:space-x-2 px-2.5 sm:px-3 py-1.5 font-inter text-xs font-bold tracking-wider uppercase transition-all bg-black text-white hover:bg-neutral-800 cursor-pointer"
               title="Shopping Bag"
             >
               <ShoppingBag size={16} />
@@ -206,12 +195,22 @@ export const Navbar: React.FC<NavbarProps> = ({
                 {totalCartCount}
               </span>
             </button>
+
+            {/* Mobile Hamburger Button */}
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="lg:hidden flex items-center space-x-1.5 px-2.5 py-1.5 transition-all cursor-pointer font-inter text-xs font-bold tracking-widest uppercase border border-neutral-200 bg-neutral-100 hover:bg-black hover:text-white text-black shadow-xs relative z-50"
+              aria-label="Toggle Navigation Menu"
+            >
+              {menuOpen ? <X size={20} /> : <Menu size={20} />}
+              <span className="hidden sm:inline-block">{menuOpen ? 'CLOSE' : 'MENU'}</span>
+            </button>
           </div>
         </header>
 
         {/* Full-Screen Mobile Navigation Overlay */}
         {menuOpen && (
-          <div className="fixed top-[calc(1rem+40px)] sm:top-[calc(1rem+44px)] left-0 right-0 bottom-0 z-40 bg-white text-black flex flex-col justify-between overflow-y-auto lg:hidden animate-in fade-in slide-in-from-top-2 duration-200">
+          <div className="fixed inset-0 top-[96px] sm:top-[100px] z-40 bg-white text-black flex flex-col justify-between overflow-y-auto lg:hidden animate-in fade-in slide-in-from-top-2 duration-200">
             <div className="px-6 py-3 border-b border-neutral-200 shrink-0 bg-neutral-50">
               <span className="font-anton text-xs text-neutral-400 tracking-widest uppercase">
                 NAVIGATION & CATEGORIES
@@ -224,7 +223,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <button
                   key={`${link.target}-${index}`}
                   onClick={() => handleNavClick(link.target)}
-                  className="flex items-center justify-between font-anton text-2xl sm:text-3xl text-neutral-900 hover:text-red-600 py-3.5 px-5 border border-neutral-200 hover:border-black bg-neutral-50 active:bg-neutral-100 tracking-wider text-left transition-all group"
+                  className="w-full flex items-center justify-between font-anton text-xl sm:text-2xl text-neutral-900 hover:text-red-600 py-3.5 px-5 border border-neutral-200 hover:border-black bg-neutral-50 active:bg-neutral-100 tracking-wider text-left transition-all group cursor-pointer"
                 >
                   {link.type === 'kragcaps' ? (
                     <span>
@@ -237,8 +236,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                     <span>{link.label}</span>
                   )}
                   <ArrowRight
-                    size={22}
-                    className="text-neutral-400 group-hover:text-black group-hover:translate-x-1 transition-transform"
+                    size={20}
+                    className="text-neutral-400 group-hover:text-black group-hover:translate-x-1 transition-transform shrink-0"
                   />
                 </button>
               ))}

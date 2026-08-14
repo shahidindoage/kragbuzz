@@ -12,6 +12,7 @@ import { ReviewSection } from '../components/ReviewSection';
 
 import { BEST_SELLERS, ACCESSORIES, KIDS, HEADWEAR, BAGS, CRICKET, REVIEWS } from '../data/mockData';
 import { Product } from '../types';
+import { InstagramSection, ReviewSection2 } from './Creatory';
 
 interface HomeProps {
   onQuickView: (product: Product) => void;
@@ -100,7 +101,14 @@ export function Home({
       <BlogSection/>
 
       {/* 10. Review Section */}
-      <ReviewSection reviews={REVIEWS} />
+      {/* <ReviewSection reviews={REVIEWS} /> */}
+
+      <InstagramSection/>
+
+       <ReviewSection2 
+        reviews={REVIEWS}
+        title="ATHLETE REVIEWS"
+      />
     </main>
   );
 }
