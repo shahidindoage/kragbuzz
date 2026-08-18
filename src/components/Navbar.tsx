@@ -47,11 +47,11 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   // Nav menu links configuration
   const navLinks = [
-    { type: 'text', label: 'Men', target: 'https://kragbuzz.com/collections/men' },
-    { type: 'text', label: 'Women', target: 'https://kragbuzz.com/collections/women' },
-    { type: 'text', label: 'Accessories', target: 'https://kragbuzz.com/collections/accessories' },
-    { type: 'text', label: 'Bags', target: 'https://kragbuzz.com/collections/bags' },
-    { type: 'text', label: 'Cricket', target: 'https://kragbuzz.com/collections/cricket-set' },
+    { type: 'text', label: 'Men', target: 'mens' },
+    { type: 'text', label: 'Women', target: 'womens' },
+    { type: 'text', label: 'Accessories', target: 'accessories' },
+    { type: 'text', label: 'Bags', target: 'bags' },
+    { type: 'text', label: 'Cricket', target: 'cricket' },
     {
       type: 'creatory',
       label: 'The Creatory',
@@ -133,11 +133,11 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Desktop Navigation Menu Links */}
             <nav className="hidden lg:flex items-center space-x-4 xl:space-x-6 h-full ml-6 xl:ml-8">
               {navLinks.map((link, index) => (
-                <Link
-                  to={link.target}
+                <button
+                  type="button"
                   key={`${link.target}-${index}`}
                   onClick={() => handleNavClick(link.target)}
-                  className="flex items-center justify-center cursor-pointer py-1 shrink-0"
+                  className="flex items-center justify-center cursor-pointer py-1 shrink-0 bg-transparent border-0"
                 >
                   {link.type === 'creatory' ? (
                     <span className={`font-inter text-[11px] xl:text-xs tracking-wider uppercase transition-all duration-200 ${link.badgeStyle}`}>
@@ -154,7 +154,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                       {link.label}
                     </span>
                   )}
-                </Link>
+                </button>
               ))}
             </nav>
           </div>

@@ -105,7 +105,106 @@ export const BEST_SELLERS: Product[] = [
   },
 
 ];
-
+export const RELATED_PRODUCTS: Product[] = [
+  {
+    id: 'bs-2',
+    name: 'MELANGE JACKET',
+    category: 'bestseller',
+    categoryLabel: 'WOMENS / JACKETS',
+    price: 2999.00,
+    originalPrice: 3999.00,
+    description: 'Ultralight featherweight weather defense shield. Folds down into its own chest compartment for seamless transit.',
+    colors: [
+      { name: 'Pure White', hex: '#f8f9fa' },
+      { name: 'Deep Midnight', hex: '#0d1b2a' },
+      { name: 'Cyber Lime', hex: '#ccff00' }
+    ],
+    sizes: ['XS', 'S', 'M', 'L'],
+    image: 'https://kragbuzz.com/cdn/shop/files/801A5378.jpg?v=1783924270&width=480',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/801A5380.jpg?v=1783924270&width=480',
+    rating: 4.8,
+    reviewsCount: 98,
+    isBestSeller: true,
+    features: ['100% Windproof Ripstop Nylon', '360° Reflective seam mapping', 'Laser-cut underarm ventilation ports'],
+    techSpecs: {
+      'Material': '100% Micro Ripstop Nylon',
+      'Fit': 'Slim Ergonomic',
+      'Weight': '140g'
+    }
+  },
+  {
+    id: 'bs-3',
+    name: 'SPANDEX SLEEVELESS TANK',
+    category: 'bestseller',
+    categoryLabel: 'MENS / Sleeveless Tanks',
+    price: 699.00,
+    description: 'Targeted muscle containment zone construction reducing post-training fatigue and maximizing power output.',
+    colors: [
+      { name: 'Stealth Black', hex: '#000000' },
+      { name: 'Slate Grey', hex: '#333533' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    image: 'https://kragbuzz.com/cdn/shop/files/801A3430.jpg?v=1784377693&width=480',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/801A3431_6262284d-182c-4df5-badc-f53f4d2dcfdb.jpg?v=1784377692&width=480',
+    rating: 4.95,
+    reviewsCount: 210,
+    isBestSeller: true,
+    features: ['Graduated medical grade compression', 'Quick-dry moisture transport matrix', 'Sweatproof back zip media pocket'],
+    techSpecs: {
+      'Compression': '20-25 mmHg',
+      'Material': '65% Polyamide, 35% Elastane'
+    }
+  },
+  {
+    id: 'bs-4',
+    name: 'ELNA ROUND NECK T-SHIRTS',
+    category: 'bestseller',
+    categoryLabel: 'WOMENS / T-SHIRTS',
+    price: 749.00,
+    description: 'Full-length curved carbon fiber propulsion plate fused with nitrogen-infused energetic foam cell midsole.',
+    colors: [
+      { name: 'Infrared Crimson', hex: '#d90429' },
+      { name: 'Core White', hex: '#ffffff' },
+      { name: 'Matte Charcoal', hex: '#212529' }
+    ],
+    sizes: ['US 8', 'US 9', 'US 10', 'US 11', 'US 12'],
+    image: 'https://kragbuzz.com/cdn/shop/files/9V3A1565.jpg?v=1783774678&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/9V3A1562.jpg?v=1783774678&width=720',
+    rating: 5.0,
+    reviewsCount: 384,
+    isBestSeller: true,
+    isNew: true,
+    features: ['3D Matrix Woven Monofilament Upper', 'Nitrogen-infused Dual-Density Foam', 'Carbon composite propulsion shank'],
+    techSpecs: {
+      'Drop': '8mm',
+      'Weight': '195g (US 9)',
+      'Surface': 'Road / Track'
+    }
+  },
+{
+    id: 'bs-3',
+    name: 'SPANDEX SLEEVELESS TANK',
+    category: 'bestseller',
+    categoryLabel: 'MENS / Sleeveless Tanks',
+    price: 699.00,
+    description: 'Targeted muscle containment zone construction reducing post-training fatigue and maximizing power output.',
+    colors: [
+      { name: 'Stealth Black', hex: '#000000' },
+      { name: 'Slate Grey', hex: '#333533' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    image: 'https://kragbuzz.com/cdn/shop/files/801A3466_a74ad44b-8e52-49d6-9aa3-16b9c5d8d33f.jpg?v=1784376496&width=480',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/801A3464.jpg?v=1784376496&width=480',
+    rating: 4.95,
+    reviewsCount: 210,
+    isBestSeller: true,
+    features: ['Graduated medical grade compression', 'Quick-dry moisture transport matrix', 'Sweatproof back zip media pocket'],
+    techSpecs: {
+      'Compression': '20-25 mmHg',
+      'Material': '65% Polyamide, 35% Elastane'
+    }
+  },
+];
 export const ACCESSORIES: Product[] = [
   {
     id: 'acc-1',
@@ -147,6 +246,120 @@ export const ACCESSORIES: Product[] = [
   },
   {
     id: 'acc-3',
+    name: 'SLEEVELESS',
+    category: 'accessories',
+    categoryLabel: 'Compression',
+    price: 899.00,
+    description: 'Laser-perforated cooling crown with sweat-wicking internal headband and magnetic back slider buckle.',
+    colors: [
+      { name: 'Obsidian', hex: '#111111' },
+      { name: 'Ghost White', hex: '#f0f0f0' },
+      { name: 'Tactical Sand', hex: '#c2b280' }
+    ],
+    sizes: ['One Size Fits All'],
+    image: 'https://kragbuzz.com/cdn/shop/files/ARU_3667.jpg?v=1784543365&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/ARU_3666.jpg?v=1784543365&width=720',
+    rating: 4.9,
+    reviewsCount: 88,
+    features: ['UPF 50+ Sun defense rating', 'Pliable semi-curved brim', 'Hydrophobic surface treatment']
+  },
+   {
+    id: 'acc-4',
+    name: 'SLEEVELESS',
+    category: 'accessories',
+    categoryLabel: 'Compression',
+    price: 899.00,
+    description: 'Laser-perforated cooling crown with sweat-wicking internal headband and magnetic back slider buckle.',
+    colors: [
+      { name: 'Obsidian', hex: '#111111' },
+      { name: 'Ghost White', hex: '#f0f0f0' },
+      { name: 'Tactical Sand', hex: '#c2b280' }
+    ],
+    sizes: ['One Size Fits All'],
+    image: 'https://kragbuzz.com/cdn/shop/files/ARU_3667.jpg?v=1784543365&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/ARU_3666.jpg?v=1784543365&width=720',
+    rating: 4.9,
+    reviewsCount: 88,
+    features: ['UPF 50+ Sun defense rating', 'Pliable semi-curved brim', 'Hydrophobic surface treatment']
+  },
+  {
+    id: 'acc-5',
+    name: 'SLEEVELESS',
+    category: 'accessories',
+    categoryLabel: 'Compression',
+    price: 899.00,
+    description: 'Laser-perforated cooling crown with sweat-wicking internal headband and magnetic back slider buckle.',
+    colors: [
+      { name: 'Obsidian', hex: '#111111' },
+      { name: 'Ghost White', hex: '#f0f0f0' },
+      { name: 'Tactical Sand', hex: '#c2b280' }
+    ],
+    sizes: ['One Size Fits All'],
+    image: 'https://kragbuzz.com/cdn/shop/files/ARU_3667.jpg?v=1784543365&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/ARU_3666.jpg?v=1784543365&width=720',
+    rating: 4.9,
+    reviewsCount: 88,
+    features: ['UPF 50+ Sun defense rating', 'Pliable semi-curved brim', 'Hydrophobic surface treatment']
+  },
+  {
+    id: 'acc-6',
+    name: 'SLEEVELESS',
+    category: 'accessories',
+    categoryLabel: 'Compression',
+    price: 899.00,
+    description: 'Laser-perforated cooling crown with sweat-wicking internal headband and magnetic back slider buckle.',
+    colors: [
+      { name: 'Obsidian', hex: '#111111' },
+      { name: 'Ghost White', hex: '#f0f0f0' },
+      { name: 'Tactical Sand', hex: '#c2b280' }
+    ],
+    sizes: ['One Size Fits All'],
+    image: 'https://kragbuzz.com/cdn/shop/files/ARU_3667.jpg?v=1784543365&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/ARU_3666.jpg?v=1784543365&width=720',
+    rating: 4.9,
+    reviewsCount: 88,
+    features: ['UPF 50+ Sun defense rating', 'Pliable semi-curved brim', 'Hydrophobic surface treatment']
+  },
+   {
+    id: 'acc-7',
+    name: 'SLEEVELESS',
+    category: 'accessories',
+    categoryLabel: 'Compression',
+    price: 899.00,
+    description: 'Laser-perforated cooling crown with sweat-wicking internal headband and magnetic back slider buckle.',
+    colors: [
+      { name: 'Obsidian', hex: '#111111' },
+      { name: 'Ghost White', hex: '#f0f0f0' },
+      { name: 'Tactical Sand', hex: '#c2b280' }
+    ],
+    sizes: ['One Size Fits All'],
+    image: 'https://kragbuzz.com/cdn/shop/files/ARU_3667.jpg?v=1784543365&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/ARU_3666.jpg?v=1784543365&width=720',
+    rating: 4.9,
+    reviewsCount: 88,
+    features: ['UPF 50+ Sun defense rating', 'Pliable semi-curved brim', 'Hydrophobic surface treatment']
+  },
+  {
+    id: 'acc-8',
+    name: 'SLEEVELESS',
+    category: 'accessories',
+    categoryLabel: 'Compression',
+    price: 899.00,
+    description: 'Laser-perforated cooling crown with sweat-wicking internal headband and magnetic back slider buckle.',
+    colors: [
+      { name: 'Obsidian', hex: '#111111' },
+      { name: 'Ghost White', hex: '#f0f0f0' },
+      { name: 'Tactical Sand', hex: '#c2b280' }
+    ],
+    sizes: ['One Size Fits All'],
+    image: 'https://kragbuzz.com/cdn/shop/files/ARU_3667.jpg?v=1784543365&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/ARU_3666.jpg?v=1784543365&width=720',
+    rating: 4.9,
+    reviewsCount: 88,
+    features: ['UPF 50+ Sun defense rating', 'Pliable semi-curved brim', 'Hydrophobic surface treatment']
+  },
+  {
+    id: 'acc-9',
     name: 'SLEEVELESS',
     category: 'accessories',
     categoryLabel: 'Compression',
@@ -271,6 +484,90 @@ export const KIDS: Product[] = [
     reviewsCount: 78,
     isNew: true,
     features: ['Quick-dry breathable mesh lining', 'Zippered secure side pockets', 'Adjustable elastic drawstring waistband']
+  },
+  {
+    id: 'kids-6',
+    name: 'PENCIL',
+    category: 'kids',
+    categoryLabel: 'KIDS / T-SHIRT',
+    price: 699.00,
+    originalPrice: 999.00,
+    description: 'High-performance activewear tracksuit engineered for young athletes. Ultra-durable 4-way stretch fabric with moisture transport.',
+    colors: [
+      { name: 'Onyx Black', hex: '#121212' },
+      { name: 'Royal Blue', hex: '#1d4ed8' },
+      { name: 'Crimson Red', hex: '#dc2626' }
+    ],
+    sizes: ['4Y', '6Y', '8Y', '10Y', '12Y', '14Y'],
+    image: 'https://kragbuzz.com/cdn/shop/files/DSC02046_23b113b4-532d-49c6-a7b3-a5cb6e7c1c69.jpg?v=1783669590&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/DSC02047_a9bf4196-432a-4749-b7ef-dd95ca8b4b46.jpg?v=1783669590&width=720',
+    rating: 4.9,
+    reviewsCount: 78,
+    isNew: true,
+    features: ['Quick-dry breathable mesh lining', 'Zippered secure side pockets', 'Adjustable elastic drawstring waistband']
+  },
+  {
+    id: 'kids-7',
+    name: 'PENCIL',
+    category: 'kids',
+    categoryLabel: 'KIDS / T-SHIRT',
+    price: 699.00,
+    originalPrice: 999.00,
+    description: 'High-performance activewear tracksuit engineered for young athletes. Ultra-durable 4-way stretch fabric with moisture transport.',
+    colors: [
+      { name: 'Onyx Black', hex: '#121212' },
+      { name: 'Royal Blue', hex: '#1d4ed8' },
+      { name: 'Crimson Red', hex: '#dc2626' }
+    ],
+    sizes: ['4Y', '6Y', '8Y', '10Y', '12Y', '14Y'],
+    image: 'https://kragbuzz.com/cdn/shop/files/DSC02046_23b113b4-532d-49c6-a7b3-a5cb6e7c1c69.jpg?v=1783669590&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/DSC02047_a9bf4196-432a-4749-b7ef-dd95ca8b4b46.jpg?v=1783669590&width=720',
+    rating: 4.9,
+    reviewsCount: 78,
+    isNew: true,
+    features: ['Quick-dry breathable mesh lining', 'Zippered secure side pockets', 'Adjustable elastic drawstring waistband']
+  },
+  {
+    id: 'kids-8',
+    name: 'PENCIL',
+    category: 'kids',
+    categoryLabel: 'KIDS / T-SHIRT',
+    price: 699.00,
+    originalPrice: 999.00,
+    description: 'High-performance activewear tracksuit engineered for young athletes. Ultra-durable 4-way stretch fabric with moisture transport.',
+    colors: [
+      { name: 'Onyx Black', hex: '#121212' },
+      { name: 'Royal Blue', hex: '#1d4ed8' },
+      { name: 'Crimson Red', hex: '#dc2626' }
+    ],
+    sizes: ['4Y', '6Y', '8Y', '10Y', '12Y', '14Y'],
+    image: 'https://kragbuzz.com/cdn/shop/files/DSC02046_23b113b4-532d-49c6-a7b3-a5cb6e7c1c69.jpg?v=1783669590&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/DSC02047_a9bf4196-432a-4749-b7ef-dd95ca8b4b46.jpg?v=1783669590&width=720',
+    rating: 4.9,
+    reviewsCount: 78,
+    isNew: true,
+    features: ['Quick-dry breathable mesh lining', 'Zippered secure side pockets', 'Adjustable elastic drawstring waistband']
+  },
+  {
+    id: 'kids-9',
+    name: 'PENCIL',
+    category: 'kids',
+    categoryLabel: 'KIDS / T-SHIRT',
+    price: 699.00,
+    originalPrice: 999.00,
+    description: 'High-performance activewear tracksuit engineered for young athletes. Ultra-durable 4-way stretch fabric with moisture transport.',
+    colors: [
+      { name: 'Onyx Black', hex: '#121212' },
+      { name: 'Royal Blue', hex: '#1d4ed8' },
+      { name: 'Crimson Red', hex: '#dc2626' }
+    ],
+    sizes: ['4Y', '6Y', '8Y', '10Y', '12Y', '14Y'],
+    image: 'https://kragbuzz.com/cdn/shop/files/DSC02046_23b113b4-532d-49c6-a7b3-a5cb6e7c1c69.jpg?v=1783669590&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/DSC02047_a9bf4196-432a-4749-b7ef-dd95ca8b4b46.jpg?v=1783669590&width=720',
+    rating: 4.9,
+    reviewsCount: 78,
+    isNew: true,
+    features: ['Quick-dry breathable mesh lining', 'Zippered secure side pockets', 'Adjustable elastic drawstring waistband']
   }
 ];
 
@@ -362,6 +659,116 @@ export const HEADWEAR: Product[] = [
     isNew: true,
     isBestSeller: true,
     features: ['Laser-cut ventilation ports', 'Hydrophobic water-repellent treatment', 'Custom anti-bacterial sweatband']
+  },
+  {
+    id: 'headwear-5',
+    name: 'Twist CAP',
+    category: 'headwear',
+    categoryLabel: 'HEADWEAR / CAPS',
+    price: 599.00,
+    originalPrice: 999.00,
+    description: 'Structured 6-panel athletic cap with laser-cut breathability perforations, water-repellent shell, and laser-engraved metal clasp.',
+    colors: [
+      { name: 'Onyx Black', hex: '#121212' },
+      { name: 'Tactical Olive', hex: '#2d372e' },
+      { name: 'Stealth Grey', hex: '#4a4e51' }
+    ],
+    sizes: ['OSFA'],
+    image: 'https://kragbuzz.com/cdn/shop/files/DSC07491_0605a176-3301-49e9-806f-3f6a25b90bb9.jpg?v=1783751575&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/DSC07488_28bc39e0-c7d2-4845-ad26-5b517e3ea4cc.jpg?v=1783751575&width=720',
+    rating: 4.9,
+    reviewsCount: 142,
+    isNew: true,
+    isBestSeller: true,
+    features: ['Laser-cut ventilation ports', 'Hydrophobic water-repellent treatment', 'Custom anti-bacterial sweatband']
+  },
+  {
+    id: 'headwear-6',
+    name: 'Twist CAP',
+    category: 'headwear',
+    categoryLabel: 'HEADWEAR / CAPS',
+    price: 599.00,
+    originalPrice: 999.00,
+    description: 'Structured 6-panel athletic cap with laser-cut breathability perforations, water-repellent shell, and laser-engraved metal clasp.',
+    colors: [
+      { name: 'Onyx Black', hex: '#121212' },
+      { name: 'Tactical Olive', hex: '#2d372e' },
+      { name: 'Stealth Grey', hex: '#4a4e51' }
+    ],
+    sizes: ['OSFA'],
+    image: 'https://kragbuzz.com/cdn/shop/files/DSC07491_0605a176-3301-49e9-806f-3f6a25b90bb9.jpg?v=1783751575&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/DSC07488_28bc39e0-c7d2-4845-ad26-5b517e3ea4cc.jpg?v=1783751575&width=720',
+    rating: 4.9,
+    reviewsCount: 142,
+    isNew: true,
+    isBestSeller: true,
+    features: ['Laser-cut ventilation ports', 'Hydrophobic water-repellent treatment', 'Custom anti-bacterial sweatband']
+  },
+  {
+    id: 'headwear-7',
+    name: 'Twist CAP',
+    category: 'headwear',
+    categoryLabel: 'HEADWEAR / CAPS',
+    price: 599.00,
+    originalPrice: 999.00,
+    description: 'Structured 6-panel athletic cap with laser-cut breathability perforations, water-repellent shell, and laser-engraved metal clasp.',
+    colors: [
+      { name: 'Onyx Black', hex: '#121212' },
+      { name: 'Tactical Olive', hex: '#2d372e' },
+      { name: 'Stealth Grey', hex: '#4a4e51' }
+    ],
+    sizes: ['OSFA'],
+    image: 'https://kragbuzz.com/cdn/shop/files/DSC07491_0605a176-3301-49e9-806f-3f6a25b90bb9.jpg?v=1783751575&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/DSC07488_28bc39e0-c7d2-4845-ad26-5b517e3ea4cc.jpg?v=1783751575&width=720',
+    rating: 4.9,
+    reviewsCount: 142,
+    isNew: true,
+    isBestSeller: true,
+    features: ['Laser-cut ventilation ports', 'Hydrophobic water-repellent treatment', 'Custom anti-bacterial sweatband']
+  },
+  {
+    id: 'headwear-8',
+    name: 'Twist CAP',
+    category: 'headwear',
+    categoryLabel: 'HEADWEAR / CAPS',
+    price: 599.00,
+    originalPrice: 999.00,
+    description: 'Structured 6-panel athletic cap with laser-cut breathability perforations, water-repellent shell, and laser-engraved metal clasp.',
+    colors: [
+      { name: 'Onyx Black', hex: '#121212' },
+      { name: 'Tactical Olive', hex: '#2d372e' },
+      { name: 'Stealth Grey', hex: '#4a4e51' }
+    ],
+    sizes: ['OSFA'],
+    image: 'https://kragbuzz.com/cdn/shop/files/DSC07491_0605a176-3301-49e9-806f-3f6a25b90bb9.jpg?v=1783751575&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/DSC07488_28bc39e0-c7d2-4845-ad26-5b517e3ea4cc.jpg?v=1783751575&width=720',
+    rating: 4.9,
+    reviewsCount: 142,
+    isNew: true,
+    isBestSeller: true,
+    features: ['Laser-cut ventilation ports', 'Hydrophobic water-repellent treatment', 'Custom anti-bacterial sweatband']
+  },
+  {
+    id: 'headwear-9',
+    name: 'Twist CAP',
+    category: 'headwear',
+    categoryLabel: 'HEADWEAR / CAPS',
+    price: 599.00,
+    originalPrice: 999.00,
+    description: 'Structured 6-panel athletic cap with laser-cut breathability perforations, water-repellent shell, and laser-engraved metal clasp.',
+    colors: [
+      { name: 'Onyx Black', hex: '#121212' },
+      { name: 'Tactical Olive', hex: '#2d372e' },
+      { name: 'Stealth Grey', hex: '#4a4e51' }
+    ],
+    sizes: ['OSFA'],
+    image: 'https://kragbuzz.com/cdn/shop/files/DSC07491_0605a176-3301-49e9-806f-3f6a25b90bb9.jpg?v=1783751575&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/DSC07488_28bc39e0-c7d2-4845-ad26-5b517e3ea4cc.jpg?v=1783751575&width=720',
+    rating: 4.9,
+    reviewsCount: 142,
+    isNew: true,
+    isBestSeller: true,
+    features: ['Laser-cut ventilation ports', 'Hydrophobic water-repellent treatment', 'Custom anti-bacterial sweatband']
   }
 ];
 
@@ -410,6 +817,132 @@ export const CRICKET: Product[] = [
   },
   {
     id: 'cricket-3',
+    name: 'LEGEND WHITE',
+    category: 'cricket',
+    categoryLabel: 'CRICKET / Balls',
+    price: 919.00,
+    originalPrice: 1219.00,
+    description: 'Grade 1+ hand-selected English Willow with extended sweet spot, pristine grain structure, and anti-shock rubber handle grip.',
+    colors: [
+      { name: 'Onyx Red', hex: '#dc2626' },
+      { name: 'Stealth Black', hex: '#121212' }
+    ],
+    sizes: ['Short Handle (SH)', 'Long Handle (LH)', 'Harrow'],
+    image: 'https://kragbuzz.com/cdn/shop/files/373da459-a764-4c85-8b23-8302375b28d9.png?v=1784876114&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/373da459-a764-4c85-8b23-8302375b28d9.png?v=1784876114&width=720',
+    rating: 4.95,
+    reviewsCount: 88,
+    isNew: true,
+    isBestSeller: true,
+    features: ['Grade 1+ Air-dried English Willow', '39mm+ Ultra-thick power edges', 'Consolidated toe guard for moisture defense']
+  },
+   {
+    id: 'cricket-4',
+    name: 'LEGEND WHITE',
+    category: 'cricket',
+    categoryLabel: 'CRICKET / Balls',
+    price: 919.00,
+    originalPrice: 1219.00,
+    description: 'Grade 1+ hand-selected English Willow with extended sweet spot, pristine grain structure, and anti-shock rubber handle grip.',
+    colors: [
+      { name: 'Onyx Red', hex: '#dc2626' },
+      { name: 'Stealth Black', hex: '#121212' }
+    ],
+    sizes: ['Short Handle (SH)', 'Long Handle (LH)', 'Harrow'],
+    image: 'https://kragbuzz.com/cdn/shop/files/373da459-a764-4c85-8b23-8302375b28d9.png?v=1784876114&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/373da459-a764-4c85-8b23-8302375b28d9.png?v=1784876114&width=720',
+    rating: 4.95,
+    reviewsCount: 88,
+    isNew: true,
+    isBestSeller: true,
+    features: ['Grade 1+ Air-dried English Willow', '39mm+ Ultra-thick power edges', 'Consolidated toe guard for moisture defense']
+  },
+  {
+    id: 'cricket-5',
+    name: 'LEGEND WHITE',
+    category: 'cricket',
+    categoryLabel: 'CRICKET / Balls',
+    price: 919.00,
+    originalPrice: 1219.00,
+    description: 'Grade 1+ hand-selected English Willow with extended sweet spot, pristine grain structure, and anti-shock rubber handle grip.',
+    colors: [
+      { name: 'Onyx Red', hex: '#dc2626' },
+      { name: 'Stealth Black', hex: '#121212' }
+    ],
+    sizes: ['Short Handle (SH)', 'Long Handle (LH)', 'Harrow'],
+    image: 'https://kragbuzz.com/cdn/shop/files/373da459-a764-4c85-8b23-8302375b28d9.png?v=1784876114&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/373da459-a764-4c85-8b23-8302375b28d9.png?v=1784876114&width=720',
+    rating: 4.95,
+    reviewsCount: 88,
+    isNew: true,
+    isBestSeller: true,
+    features: ['Grade 1+ Air-dried English Willow', '39mm+ Ultra-thick power edges', 'Consolidated toe guard for moisture defense']
+  },
+  {
+    id: 'cricket-6',
+    name: 'LEGEND WHITE',
+    category: 'cricket',
+    categoryLabel: 'CRICKET / Balls',
+    price: 919.00,
+    originalPrice: 1219.00,
+    description: 'Grade 1+ hand-selected English Willow with extended sweet spot, pristine grain structure, and anti-shock rubber handle grip.',
+    colors: [
+      { name: 'Onyx Red', hex: '#dc2626' },
+      { name: 'Stealth Black', hex: '#121212' }
+    ],
+    sizes: ['Short Handle (SH)', 'Long Handle (LH)', 'Harrow'],
+    image: 'https://kragbuzz.com/cdn/shop/files/373da459-a764-4c85-8b23-8302375b28d9.png?v=1784876114&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/373da459-a764-4c85-8b23-8302375b28d9.png?v=1784876114&width=720',
+    rating: 4.95,
+    reviewsCount: 88,
+    isNew: true,
+    isBestSeller: true,
+    features: ['Grade 1+ Air-dried English Willow', '39mm+ Ultra-thick power edges', 'Consolidated toe guard for moisture defense']
+  },
+   {
+    id: 'cricket-7',
+    name: 'LEGEND WHITE',
+    category: 'cricket',
+    categoryLabel: 'CRICKET / Balls',
+    price: 919.00,
+    originalPrice: 1219.00,
+    description: 'Grade 1+ hand-selected English Willow with extended sweet spot, pristine grain structure, and anti-shock rubber handle grip.',
+    colors: [
+      { name: 'Onyx Red', hex: '#dc2626' },
+      { name: 'Stealth Black', hex: '#121212' }
+    ],
+    sizes: ['Short Handle (SH)', 'Long Handle (LH)', 'Harrow'],
+    image: 'https://kragbuzz.com/cdn/shop/files/373da459-a764-4c85-8b23-8302375b28d9.png?v=1784876114&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/373da459-a764-4c85-8b23-8302375b28d9.png?v=1784876114&width=720',
+    rating: 4.95,
+    reviewsCount: 88,
+    isNew: true,
+    isBestSeller: true,
+    features: ['Grade 1+ Air-dried English Willow', '39mm+ Ultra-thick power edges', 'Consolidated toe guard for moisture defense']
+  },
+  {
+    id: 'cricket-8',
+    name: 'LEGEND WHITE',
+    category: 'cricket',
+    categoryLabel: 'CRICKET / Balls',
+    price: 919.00,
+    originalPrice: 1219.00,
+    description: 'Grade 1+ hand-selected English Willow with extended sweet spot, pristine grain structure, and anti-shock rubber handle grip.',
+    colors: [
+      { name: 'Onyx Red', hex: '#dc2626' },
+      { name: 'Stealth Black', hex: '#121212' }
+    ],
+    sizes: ['Short Handle (SH)', 'Long Handle (LH)', 'Harrow'],
+    image: 'https://kragbuzz.com/cdn/shop/files/373da459-a764-4c85-8b23-8302375b28d9.png?v=1784876114&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/373da459-a764-4c85-8b23-8302375b28d9.png?v=1784876114&width=720',
+    rating: 4.95,
+    reviewsCount: 88,
+    isNew: true,
+    isBestSeller: true,
+    features: ['Grade 1+ Air-dried English Willow', '39mm+ Ultra-thick power edges', 'Consolidated toe guard for moisture defense']
+  },
+  {
+    id: 'cricket-9',
     name: 'LEGEND WHITE',
     category: 'cricket',
     categoryLabel: 'CRICKET / Balls',
@@ -509,6 +1042,162 @@ export const BAGS: Product[] = [
       'Dimensions': '58 x 34 x 28 cm',
       'Material': '900D TPU Coated Ballistic'
     }
+  },
+   {
+    id: 'bag-4',
+    name: 'REVERSE BAGPACK',
+    category: 'bags',
+    categoryLabel: 'TRAVEL & TRAINING',
+    price: 2299.00,
+    originalPrice: 3299.00,
+    description: 'Weatherproof 900D TPU coated ballistic nylon shell with hideaway backpack harness straps and isolated vented shoe compartment.',
+    colors: [
+      { name: 'Matte Black', hex: '#0c0c0c' },
+      { name: 'Olive Drab', hex: '#353f31' },
+      { name: 'Concrete Grey', hex: '#495057' }
+    ],
+    sizes: ['50 Liters'],
+    image: 'https://kragbuzz.com/cdn/shop/files/ARU_5164_e5342bb1-a421-479f-a39d-22fa4bb2d105.jpg?v=1785079581&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/ARU_5165_5c1ea395-a4f1-451b-b4fd-8df5f9f2a7ff.jpg?v=1785079581&width=720',
+    rating: 4.96,
+    reviewsCount: 112,
+    isBestSeller: true,
+    features: ['100% Water-sealed YKK Aquaguard zippers', 'Convertible dual-mode carry system', 'Internal padded laptop / tablet sleeve'],
+    techSpecs: {
+      'Capacity': '50 Liters',
+      'Dimensions': '58 x 34 x 28 cm',
+      'Material': '900D TPU Coated Ballistic'
+    }
+  },
+  {
+    id: 'bag-5',
+    name: 'REVERSE BAGPACK',
+    category: 'bags',
+    categoryLabel: 'TRAVEL & TRAINING',
+    price: 2299.00,
+    originalPrice: 3299.00,
+    description: 'Weatherproof 900D TPU coated ballistic nylon shell with hideaway backpack harness straps and isolated vented shoe compartment.',
+    colors: [
+      { name: 'Matte Black', hex: '#0c0c0c' },
+      { name: 'Olive Drab', hex: '#353f31' },
+      { name: 'Concrete Grey', hex: '#495057' }
+    ],
+    sizes: ['50 Liters'],
+    image: 'https://kragbuzz.com/cdn/shop/files/ARU_5164_e5342bb1-a421-479f-a39d-22fa4bb2d105.jpg?v=1785079581&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/ARU_5165_5c1ea395-a4f1-451b-b4fd-8df5f9f2a7ff.jpg?v=1785079581&width=720',
+    rating: 4.96,
+    reviewsCount: 112,
+    isBestSeller: true,
+    features: ['100% Water-sealed YKK Aquaguard zippers', 'Convertible dual-mode carry system', 'Internal padded laptop / tablet sleeve'],
+    techSpecs: {
+      'Capacity': '50 Liters',
+      'Dimensions': '58 x 34 x 28 cm',
+      'Material': '900D TPU Coated Ballistic'
+    }
+  },
+  {
+    id: 'bag-6',
+    name: 'REVERSE BAGPACK',
+    category: 'bags',
+    categoryLabel: 'TRAVEL & TRAINING',
+    price: 2299.00,
+    originalPrice: 3299.00,
+    description: 'Weatherproof 900D TPU coated ballistic nylon shell with hideaway backpack harness straps and isolated vented shoe compartment.',
+    colors: [
+      { name: 'Matte Black', hex: '#0c0c0c' },
+      { name: 'Olive Drab', hex: '#353f31' },
+      { name: 'Concrete Grey', hex: '#495057' }
+    ],
+    sizes: ['50 Liters'],
+    image: 'https://kragbuzz.com/cdn/shop/files/ARU_5164_e5342bb1-a421-479f-a39d-22fa4bb2d105.jpg?v=1785079581&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/ARU_5165_5c1ea395-a4f1-451b-b4fd-8df5f9f2a7ff.jpg?v=1785079581&width=720',
+    rating: 4.96,
+    reviewsCount: 112,
+    isBestSeller: true,
+    features: ['100% Water-sealed YKK Aquaguard zippers', 'Convertible dual-mode carry system', 'Internal padded laptop / tablet sleeve'],
+    techSpecs: {
+      'Capacity': '50 Liters',
+      'Dimensions': '58 x 34 x 28 cm',
+      'Material': '900D TPU Coated Ballistic'
+    }
+  },
+   {
+    id: 'bag-7',
+    name: 'REVERSE BAGPACK',
+    category: 'bags',
+    categoryLabel: 'TRAVEL & TRAINING',
+    price: 2299.00,
+    originalPrice: 3299.00,
+    description: 'Weatherproof 900D TPU coated ballistic nylon shell with hideaway backpack harness straps and isolated vented shoe compartment.',
+    colors: [
+      { name: 'Matte Black', hex: '#0c0c0c' },
+      { name: 'Olive Drab', hex: '#353f31' },
+      { name: 'Concrete Grey', hex: '#495057' }
+    ],
+    sizes: ['50 Liters'],
+    image: 'https://kragbuzz.com/cdn/shop/files/ARU_5164_e5342bb1-a421-479f-a39d-22fa4bb2d105.jpg?v=1785079581&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/ARU_5165_5c1ea395-a4f1-451b-b4fd-8df5f9f2a7ff.jpg?v=1785079581&width=720',
+    rating: 4.96,
+    reviewsCount: 112,
+    isBestSeller: true,
+    features: ['100% Water-sealed YKK Aquaguard zippers', 'Convertible dual-mode carry system', 'Internal padded laptop / tablet sleeve'],
+    techSpecs: {
+      'Capacity': '50 Liters',
+      'Dimensions': '58 x 34 x 28 cm',
+      'Material': '900D TPU Coated Ballistic'
+    }
+  },
+  {
+    id: 'bag-8',
+    name: 'REVERSE BAGPACK',
+    category: 'bags',
+    categoryLabel: 'TRAVEL & TRAINING',
+    price: 2299.00,
+    originalPrice: 3299.00,
+    description: 'Weatherproof 900D TPU coated ballistic nylon shell with hideaway backpack harness straps and isolated vented shoe compartment.',
+    colors: [
+      { name: 'Matte Black', hex: '#0c0c0c' },
+      { name: 'Olive Drab', hex: '#353f31' },
+      { name: 'Concrete Grey', hex: '#495057' }
+    ],
+    sizes: ['50 Liters'],
+    image: 'https://kragbuzz.com/cdn/shop/files/ARU_5164_e5342bb1-a421-479f-a39d-22fa4bb2d105.jpg?v=1785079581&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/ARU_5165_5c1ea395-a4f1-451b-b4fd-8df5f9f2a7ff.jpg?v=1785079581&width=720',
+    rating: 4.96,
+    reviewsCount: 112,
+    isBestSeller: true,
+    features: ['100% Water-sealed YKK Aquaguard zippers', 'Convertible dual-mode carry system', 'Internal padded laptop / tablet sleeve'],
+    techSpecs: {
+      'Capacity': '50 Liters',
+      'Dimensions': '58 x 34 x 28 cm',
+      'Material': '900D TPU Coated Ballistic'
+    }
+  },
+  {
+    id: 'bag-9',
+    name: 'REVERSE BAGPACK',
+    category: 'bags',
+    categoryLabel: 'TRAVEL & TRAINING',
+    price: 2299.00,
+    originalPrice: 3299.00,
+    description: 'Weatherproof 900D TPU coated ballistic nylon shell with hideaway backpack harness straps and isolated vented shoe compartment.',
+    colors: [
+      { name: 'Matte Black', hex: '#0c0c0c' },
+      { name: 'Olive Drab', hex: '#353f31' },
+      { name: 'Concrete Grey', hex: '#495057' }
+    ],
+    sizes: ['50 Liters'],
+    image: 'https://kragbuzz.com/cdn/shop/files/ARU_5164_e5342bb1-a421-479f-a39d-22fa4bb2d105.jpg?v=1785079581&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/ARU_5165_5c1ea395-a4f1-451b-b4fd-8df5f9f2a7ff.jpg?v=1785079581&width=720',
+    rating: 4.96,
+    reviewsCount: 112,
+    isBestSeller: true,
+    features: ['100% Water-sealed YKK Aquaguard zippers', 'Convertible dual-mode carry system', 'Internal padded laptop / tablet sleeve'],
+    techSpecs: {
+      'Capacity': '50 Liters',
+      'Dimensions': '58 x 34 x 28 cm',
+      'Material': '900D TPU Coated Ballistic'
+    }
   }
 ];
 
@@ -519,6 +1208,528 @@ export const ALL_PRODUCTS: Product[] = [
   ...CRICKET,
   ...BAGS
 ];
+
+
+export const MENS: Product[] = [
+    {
+    id: 'cotel-polo',
+    name: 'COTEL POLO',
+    category: 'mens', 
+    categoryLabel: 'MENS / POLOS',
+    price: 949.00,
+    originalPrice: 1200.00,
+    description: 'Precision engineered thermal insulation with 4-way elastic stretch woven fiber. Engineered for cold-climate explosive training.',
+    colors: [
+      { name: 'Onyx Black', hex: '#121212' },
+      { name: 'Titanium Grey', hex: '#4a4e51' },
+      { name: 'Volcanic Olive', hex: '#2d3328' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    image: 'https://kragbuzz.com/cdn/shop/files/CopyofDSC02654.jpg?v=1784007236&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/CopyofDSC02656.jpg?v=1784007235&width=720',
+    images:['https://kragbuzz.com/cdn/shop/files/CopyofDSC02654.jpg?v=1784007236&width=720','https://kragbuzz.com/cdn/shop/files/CopyofDSC02656.jpg?v=1784007235&width=720','https://kragbuzz.com/cdn/shop/files/CopyofDSC02654.jpg?v=1784007236&width=720','https://kragbuzz.com/cdn/shop/files/CopyofDSC02656.jpg?v=1784007235&width=720','https://kragbuzz.com/cdn/shop/files/CopyofDSC02654.jpg?v=1784007236&width=720','https://kragbuzz.com/cdn/shop/files/CopyofDSC02656.jpg?v=1784007235&width=720',],
+    rating: 4.9,
+    reviewsCount: 142,
+    isBestSeller: true,
+    isNew: true,
+    features: ['Aerothermal Heat retention technology', 'Water-repellent DWR coating', 'Ergonomic targeted thumbholes', 'Invisible magnetic pocket closures'],
+    techSpecs: {
+      'Material': '78% Recycled Poly, 22% Elastane',
+      'Fit': 'Athletic Tapered',
+      'Weight': '380g'
+    }
+  },
+   {
+    id: 'bs-2',
+    name: 'COTEL POLO',
+    category: 'mens', 
+    categoryLabel: 'MENS / POLOS',
+    price: 949.00,
+    originalPrice: 1200.00,
+    description: 'Precision engineered thermal insulation with 4-way elastic stretch woven fiber. Engineered for cold-climate explosive training.',
+    colors: [
+      { name: 'Onyx Black', hex: '#121212' },
+      { name: 'Titanium Grey', hex: '#4a4e51' },
+      { name: 'Volcanic Olive', hex: '#2d3328' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    image: 'https://kragbuzz.com/cdn/shop/files/CopyofDSC02654.jpg?v=1784007236&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/CopyofDSC02656.jpg?v=1784007235&width=720',
+    rating: 4.9,
+    reviewsCount: 142,
+    isBestSeller: true,
+    isNew: true,
+    features: ['Aerothermal Heat retention technology', 'Water-repellent DWR coating', 'Ergonomic targeted thumbholes', 'Invisible magnetic pocket closures'],
+    techSpecs: {
+      'Material': '78% Recycled Poly, 22% Elastane',
+      'Fit': 'Athletic Tapered',
+      'Weight': '380g'
+    }
+  },
+   {
+    id: 'bs-3',
+    name: 'COTEL POLO',
+    category: 'mens', 
+    categoryLabel: 'MENS / POLOS',
+    price: 949.00,
+    originalPrice: 1200.00,
+    description: 'Precision engineered thermal insulation with 4-way elastic stretch woven fiber. Engineered for cold-climate explosive training.',
+    colors: [
+      { name: 'Onyx Black', hex: '#121212' },
+      { name: 'Titanium Grey', hex: '#4a4e51' },
+      { name: 'Volcanic Olive', hex: '#2d3328' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    image: 'https://kragbuzz.com/cdn/shop/files/CopyofDSC02654.jpg?v=1784007236&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/CopyofDSC02656.jpg?v=1784007235&width=720',
+    rating: 4.9,
+    reviewsCount: 142,
+    isBestSeller: true,
+    isNew: true,
+    features: ['Aerothermal Heat retention technology', 'Water-repellent DWR coating', 'Ergonomic targeted thumbholes', 'Invisible magnetic pocket closures'],
+    techSpecs: {
+      'Material': '78% Recycled Poly, 22% Elastane',
+      'Fit': 'Athletic Tapered',
+      'Weight': '380g'
+    }
+  },
+   {
+    id: 'bs-4',
+    name: 'COTEL POLO',
+    category: 'mens', 
+    categoryLabel: 'MENS / POLOS',
+    price: 949.00,
+    originalPrice: 1200.00,
+    description: 'Precision engineered thermal insulation with 4-way elastic stretch woven fiber. Engineered for cold-climate explosive training.',
+    colors: [
+      { name: 'Onyx Black', hex: '#121212' },
+      { name: 'Titanium Grey', hex: '#4a4e51' },
+      { name: 'Volcanic Olive', hex: '#2d3328' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    image: 'https://kragbuzz.com/cdn/shop/files/CopyofDSC02654.jpg?v=1784007236&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/CopyofDSC02656.jpg?v=1784007235&width=720',
+    rating: 4.9,
+    reviewsCount: 142,
+    isBestSeller: true,
+    isNew: true,
+    features: ['Aerothermal Heat retention technology', 'Water-repellent DWR coating', 'Ergonomic targeted thumbholes', 'Invisible magnetic pocket closures'],
+    techSpecs: {
+      'Material': '78% Recycled Poly, 22% Elastane',
+      'Fit': 'Athletic Tapered',
+      'Weight': '380g'
+    }
+  },
+   {
+    id: 'bs-5',
+    name: 'COTEL POLO',
+    category: 'mens', 
+    categoryLabel: 'MENS / POLOS',
+    price: 949.00,
+    originalPrice: 1200.00,
+    description: 'Precision engineered thermal insulation with 4-way elastic stretch woven fiber. Engineered for cold-climate explosive training.',
+    colors: [
+      { name: 'Onyx Black', hex: '#121212' },
+      { name: 'Titanium Grey', hex: '#4a4e51' },
+      { name: 'Volcanic Olive', hex: '#2d3328' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    image: 'https://kragbuzz.com/cdn/shop/files/CopyofDSC02654.jpg?v=1784007236&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/CopyofDSC02656.jpg?v=1784007235&width=720',
+    rating: 4.9,
+    reviewsCount: 142,
+    isBestSeller: true,
+    isNew: true,
+    features: ['Aerothermal Heat retention technology', 'Water-repellent DWR coating', 'Ergonomic targeted thumbholes', 'Invisible magnetic pocket closures'],
+    techSpecs: {
+      'Material': '78% Recycled Poly, 22% Elastane',
+      'Fit': 'Athletic Tapered',
+      'Weight': '380g'
+    }
+  },
+   {
+    id: 'bs-6',
+    name: 'COTEL POLO',
+    category: 'mens', 
+    categoryLabel: 'MENS / POLOS',
+    price: 949.00,
+    originalPrice: 1200.00,
+    description: 'Precision engineered thermal insulation with 4-way elastic stretch woven fiber. Engineered for cold-climate explosive training.',
+    colors: [
+      { name: 'Onyx Black', hex: '#121212' },
+      { name: 'Titanium Grey', hex: '#4a4e51' },
+      { name: 'Volcanic Olive', hex: '#2d3328' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    image: 'https://kragbuzz.com/cdn/shop/files/CopyofDSC02654.jpg?v=1784007236&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/CopyofDSC02656.jpg?v=1784007235&width=720',
+    rating: 4.9,
+    reviewsCount: 142,
+    isBestSeller: true,
+    isNew: true,
+    features: ['Aerothermal Heat retention technology', 'Water-repellent DWR coating', 'Ergonomic targeted thumbholes', 'Invisible magnetic pocket closures'],
+    techSpecs: {
+      'Material': '78% Recycled Poly, 22% Elastane',
+      'Fit': 'Athletic Tapered',
+      'Weight': '380g'
+    }
+  },
+   {
+    id: 'bs-7',
+    name: 'COTEL POLO',
+    category: 'mens', 
+    categoryLabel: 'MENS / POLOS',
+    price: 949.00,
+    originalPrice: 1200.00,
+    description: 'Precision engineered thermal insulation with 4-way elastic stretch woven fiber. Engineered for cold-climate explosive training.',
+    colors: [
+      { name: 'Onyx Black', hex: '#121212' },
+      { name: 'Titanium Grey', hex: '#4a4e51' },
+      { name: 'Volcanic Olive', hex: '#2d3328' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    image: 'https://kragbuzz.com/cdn/shop/files/CopyofDSC02654.jpg?v=1784007236&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/CopyofDSC02656.jpg?v=1784007235&width=720',
+    rating: 4.9,
+    reviewsCount: 142,
+    isBestSeller: true,
+    isNew: true,
+    features: ['Aerothermal Heat retention technology', 'Water-repellent DWR coating', 'Ergonomic targeted thumbholes', 'Invisible magnetic pocket closures'],
+    techSpecs: {
+      'Material': '78% Recycled Poly, 22% Elastane',
+      'Fit': 'Athletic Tapered',
+      'Weight': '380g'
+    }
+  },
+   {
+    id: 'bs-8',
+    name: 'COTEL POLO',
+    category: 'mens', 
+    categoryLabel: 'MENS / POLOS',
+    price: 949.00,
+    originalPrice: 1200.00,
+    description: 'Precision engineered thermal insulation with 4-way elastic stretch woven fiber. Engineered for cold-climate explosive training.',
+    colors: [
+      { name: 'Onyx Black', hex: '#121212' },
+      { name: 'Titanium Grey', hex: '#4a4e51' },
+      { name: 'Volcanic Olive', hex: '#2d3328' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    image: 'https://kragbuzz.com/cdn/shop/files/CopyofDSC02654.jpg?v=1784007236&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/CopyofDSC02656.jpg?v=1784007235&width=720',
+    rating: 4.9,
+    reviewsCount: 142,
+    isBestSeller: true,
+    isNew: true,
+    features: ['Aerothermal Heat retention technology', 'Water-repellent DWR coating', 'Ergonomic targeted thumbholes', 'Invisible magnetic pocket closures'],
+    techSpecs: {
+      'Material': '78% Recycled Poly, 22% Elastane',
+      'Fit': 'Athletic Tapered',
+      'Weight': '380g'
+    }
+  },
+  {
+    id: 'bs-9',
+    name: 'COTEL POLO',
+    category: 'mens', 
+    categoryLabel: 'MENS / POLOS',
+    price: 949.00,
+    originalPrice: 1200.00,
+    description: 'Precision engineered thermal insulation with 4-way elastic stretch woven fiber. Engineered for cold-climate explosive training.',
+    colors: [
+      { name: 'Onyx Black', hex: '#121212' },
+      { name: 'Titanium Grey', hex: '#4a4e51' },
+      { name: 'Volcanic Olive', hex: '#2d3328' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    image: 'https://kragbuzz.com/cdn/shop/files/CopyofDSC02654.jpg?v=1784007236&width=720',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/CopyofDSC02656.jpg?v=1784007235&width=720',
+    rating: 4.9,
+    reviewsCount: 142,
+    isBestSeller: true,
+    isNew: true,
+    features: ['Aerothermal Heat retention technology', 'Water-repellent DWR coating', 'Ergonomic targeted thumbholes', 'Invisible magnetic pocket closures'],
+    techSpecs: {
+      'Material': '78% Recycled Poly, 22% Elastane',
+      'Fit': 'Athletic Tapered',
+      'Weight': '380g'
+    }
+  },
+
+];
+
+export const WOMENS: Product[] = [
+   {
+    id: 'mj',
+    name: 'MELANGE JACKET',
+    category: 'womens',
+    categoryLabel: 'WOMENS / JACKETS',
+    price: 2999.00,
+    originalPrice: 3999.00,
+    description: 'Ultralight featherweight weather defense shield. Folds down into its own chest compartment for seamless transit.',
+    colors: [
+      { name: 'Pure White', hex: '#f8f9fa' },
+      { name: 'Deep Midnight', hex: '#0d1b2a' },
+      { name: 'Cyber Lime', hex: '#ccff00' }
+    ],
+    sizes: ['XS', 'S', 'M', 'L'],
+    image: 'https://kragbuzz.com/cdn/shop/files/801A5378.jpg?v=1783924270&width=480',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/801A5380.jpg?v=1783924270&width=480',
+    rating: 4.8,
+    reviewsCount: 98,
+    isBestSeller: true,
+    features: ['100% Windproof Ripstop Nylon', '360° Reflective seam mapping', 'Laser-cut underarm ventilation ports'],
+    techSpecs: {
+      'Material': '100% Micro Ripstop Nylon',
+      'Fit': 'Slim Ergonomic',
+      'Weight': '140g'
+    }
+  },
+   {
+    id: 'womens-1',
+    name: 'MELANGE JACKET',
+    category: 'womens',
+    categoryLabel: 'WOMENS / JACKETS',
+    price: 2999.00,
+    originalPrice: 3999.00,
+    description: 'Ultralight featherweight weather defense shield. Folds down into its own chest compartment for seamless transit.',
+    colors: [
+      { name: 'Pure White', hex: '#f8f9fa' },
+      { name: 'Deep Midnight', hex: '#0d1b2a' },
+      { name: 'Cyber Lime', hex: '#ccff00' }
+    ],
+    sizes: ['XS', 'S', 'M', 'L'],
+    image: 'https://kragbuzz.com/cdn/shop/files/801A5378.jpg?v=1783924270&width=480',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/801A5380.jpg?v=1783924270&width=480',
+    rating: 4.8,
+    reviewsCount: 98,
+    isBestSeller: true,
+    features: ['100% Windproof Ripstop Nylon', '360° Reflective seam mapping', 'Laser-cut underarm ventilation ports'],
+    techSpecs: {
+      'Material': '100% Micro Ripstop Nylon',
+      'Fit': 'Slim Ergonomic',
+      'Weight': '140g'
+    }
+  },
+   {
+    id: 'womens-2',
+    name: 'MELANGE JACKET',
+    category: 'womens',
+    categoryLabel: 'WOMENS / JACKETS',
+    price: 2999.00,
+    originalPrice: 3999.00,
+    description: 'Ultralight featherweight weather defense shield. Folds down into its own chest compartment for seamless transit.',
+    colors: [
+      { name: 'Pure White', hex: '#f8f9fa' },
+      { name: 'Deep Midnight', hex: '#0d1b2a' },
+      { name: 'Cyber Lime', hex: '#ccff00' }
+    ],
+    sizes: ['XS', 'S', 'M', 'L'],
+    image: 'https://kragbuzz.com/cdn/shop/files/801A5378.jpg?v=1783924270&width=480',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/801A5380.jpg?v=1783924270&width=480',
+    rating: 4.8,
+    reviewsCount: 98,
+    isBestSeller: true,
+    features: ['100% Windproof Ripstop Nylon', '360° Reflective seam mapping', 'Laser-cut underarm ventilation ports'],
+    techSpecs: {
+      'Material': '100% Micro Ripstop Nylon',
+      'Fit': 'Slim Ergonomic',
+      'Weight': '140g'
+    }
+  },
+   {
+    id: 'womens-3',
+    name: 'MELANGE JACKET',
+    category: 'womens',
+    categoryLabel: 'WOMENS / JACKETS',
+    price: 2999.00,
+    originalPrice: 3999.00,
+    description: 'Ultralight featherweight weather defense shield. Folds down into its own chest compartment for seamless transit.',
+    colors: [
+      { name: 'Pure White', hex: '#f8f9fa' },
+      { name: 'Deep Midnight', hex: '#0d1b2a' },
+      { name: 'Cyber Lime', hex: '#ccff00' }
+    ],
+    sizes: ['XS', 'S', 'M', 'L'],
+    image: 'https://kragbuzz.com/cdn/shop/files/801A5378.jpg?v=1783924270&width=480',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/801A5380.jpg?v=1783924270&width=480',
+    rating: 4.8,
+    reviewsCount: 98,
+    isBestSeller: true,
+    features: ['100% Windproof Ripstop Nylon', '360° Reflective seam mapping', 'Laser-cut underarm ventilation ports'],
+    techSpecs: {
+      'Material': '100% Micro Ripstop Nylon',
+      'Fit': 'Slim Ergonomic',
+      'Weight': '140g'
+    }
+  },
+   {
+    id: 'womens-4',
+    name: 'MELANGE JACKET',
+    category: 'womens',
+    categoryLabel: 'WOMENS / JACKETS',
+    price: 2999.00,
+    originalPrice: 3999.00,
+    description: 'Ultralight featherweight weather defense shield. Folds down into its own chest compartment for seamless transit.',
+    colors: [
+      { name: 'Pure White', hex: '#f8f9fa' },
+      { name: 'Deep Midnight', hex: '#0d1b2a' },
+      { name: 'Cyber Lime', hex: '#ccff00' }
+    ],
+    sizes: ['XS', 'S', 'M', 'L'],
+    image: 'https://kragbuzz.com/cdn/shop/files/801A5378.jpg?v=1783924270&width=480',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/801A5380.jpg?v=1783924270&width=480',
+    rating: 4.8,
+    reviewsCount: 98,
+    isBestSeller: true,
+    features: ['100% Windproof Ripstop Nylon', '360° Reflective seam mapping', 'Laser-cut underarm ventilation ports'],
+    techSpecs: {
+      'Material': '100% Micro Ripstop Nylon',
+      'Fit': 'Slim Ergonomic',
+      'Weight': '140g'
+    }
+  },
+   {
+    id: 'womens-5',
+    name: 'MELANGE JACKET',
+    category: 'womens',
+    categoryLabel: 'WOMENS / JACKETS',
+    price: 2999.00,
+    originalPrice: 3999.00,
+    description: 'Ultralight featherweight weather defense shield. Folds down into its own chest compartment for seamless transit.',
+    colors: [
+      { name: 'Pure White', hex: '#f8f9fa' },
+      { name: 'Deep Midnight', hex: '#0d1b2a' },
+      { name: 'Cyber Lime', hex: '#ccff00' }
+    ],
+    sizes: ['XS', 'S', 'M', 'L'],
+    image: 'https://kragbuzz.com/cdn/shop/files/801A5378.jpg?v=1783924270&width=480',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/801A5380.jpg?v=1783924270&width=480',
+    rating: 4.8,
+    reviewsCount: 98,
+    isBestSeller: true,
+    features: ['100% Windproof Ripstop Nylon', '360° Reflective seam mapping', 'Laser-cut underarm ventilation ports'],
+    techSpecs: {
+      'Material': '100% Micro Ripstop Nylon',
+      'Fit': 'Slim Ergonomic',
+      'Weight': '140g'
+    }
+  },
+  {
+    id: 'womens-6',
+    name: 'MELANGE JACKET',
+    category: 'womens',
+    categoryLabel: 'WOMENS / JACKETS',
+    price: 2999.00,
+    originalPrice: 3999.00,
+    description: 'Ultralight featherweight weather defense shield. Folds down into its own chest compartment for seamless transit.',
+    colors: [
+      { name: 'Pure White', hex: '#f8f9fa' },
+      { name: 'Deep Midnight', hex: '#0d1b2a' },
+      { name: 'Cyber Lime', hex: '#ccff00' }
+    ],
+    sizes: ['XS', 'S', 'M', 'L'],
+    image: 'https://kragbuzz.com/cdn/shop/files/801A5378.jpg?v=1783924270&width=480',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/801A5380.jpg?v=1783924270&width=480',
+    rating: 4.8,
+    reviewsCount: 98,
+    isBestSeller: true,
+    features: ['100% Windproof Ripstop Nylon', '360° Reflective seam mapping', 'Laser-cut underarm ventilation ports'],
+    techSpecs: {
+      'Material': '100% Micro Ripstop Nylon',
+      'Fit': 'Slim Ergonomic',
+      'Weight': '140g'
+    }
+  },
+  {
+    id: 'womens-7',
+    name: 'MELANGE JACKET',
+    category: 'womens',
+    categoryLabel: 'WOMENS / JACKETS',
+    price: 2999.00,
+    originalPrice: 3999.00,
+    description: 'Ultralight featherweight weather defense shield. Folds down into its own chest compartment for seamless transit.',
+    colors: [
+      { name: 'Pure White', hex: '#f8f9fa' },
+      { name: 'Deep Midnight', hex: '#0d1b2a' },
+      { name: 'Cyber Lime', hex: '#ccff00' }
+    ],
+    sizes: ['XS', 'S', 'M', 'L'],
+    image: 'https://kragbuzz.com/cdn/shop/files/801A5378.jpg?v=1783924270&width=480',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/801A5380.jpg?v=1783924270&width=480',
+    rating: 4.8,
+    reviewsCount: 98,
+    isBestSeller: true,
+    features: ['100% Windproof Ripstop Nylon', '360° Reflective seam mapping', 'Laser-cut underarm ventilation ports'],
+    techSpecs: {
+      'Material': '100% Micro Ripstop Nylon',
+      'Fit': 'Slim Ergonomic',
+      'Weight': '140g'
+    }
+  },
+  {
+    id: 'womens-8',
+    name: 'MELANGE JACKET',
+    category: 'womens',
+    categoryLabel: 'WOMENS / JACKETS',
+    price: 2999.00,
+    originalPrice: 3999.00,
+    description: 'Ultralight featherweight weather defense shield. Folds down into its own chest compartment for seamless transit.',
+    colors: [
+      { name: 'Pure White', hex: '#f8f9fa' },
+      { name: 'Deep Midnight', hex: '#0d1b2a' },
+      { name: 'Cyber Lime', hex: '#ccff00' }
+    ],
+    sizes: ['XS', 'S', 'M', 'L'],
+    image: 'https://kragbuzz.com/cdn/shop/files/801A5378.jpg?v=1783924270&width=480',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/801A5380.jpg?v=1783924270&width=480',
+    rating: 4.8,
+    reviewsCount: 98,
+    isBestSeller: true,
+    features: ['100% Windproof Ripstop Nylon', '360° Reflective seam mapping', 'Laser-cut underarm ventilation ports'],
+    techSpecs: {
+      'Material': '100% Micro Ripstop Nylon',
+      'Fit': 'Slim Ergonomic',
+      'Weight': '140g'
+    }
+  },
+  {
+    id: 'womens-9',
+    name: 'MELANGE JACKET',
+    category: 'womens',
+    categoryLabel: 'WOMENS / JACKETS',
+    price: 2999.00,
+    originalPrice: 3999.00,
+    description: 'Ultralight featherweight weather defense shield. Folds down into its own chest compartment for seamless transit.',
+    colors: [
+      { name: 'Pure White', hex: '#f8f9fa' },
+      { name: 'Deep Midnight', hex: '#0d1b2a' },
+      { name: 'Cyber Lime', hex: '#ccff00' }
+    ],
+    sizes: ['XS', 'S', 'M', 'L'],
+    image: 'https://kragbuzz.com/cdn/shop/files/801A5378.jpg?v=1783924270&width=480',
+    secondaryImage: 'https://kragbuzz.com/cdn/shop/files/801A5380.jpg?v=1783924270&width=480',
+    rating: 4.8,
+    reviewsCount: 98,
+    isBestSeller: true,
+    features: ['100% Windproof Ripstop Nylon', '360° Reflective seam mapping', 'Laser-cut underarm ventilation ports'],
+    techSpecs: {
+      'Material': '100% Micro Ripstop Nylon',
+      'Fit': 'Slim Ergonomic',
+      'Weight': '140g'
+    }
+  },
+];
+
+export const NALL_PRODUCTS: Product[] = [
+  ...MENS,
+  ...WOMENS,
+  ...KIDS,
+  ...HEADWEAR,
+  ...ACCESSORIES,
+  ...BAGS,
+  ...CRICKET
+].filter((item, index, self) => index === self.findIndex((t) => t.id === item.id));
 
 export const REVIEWS: Review[] = [
   {

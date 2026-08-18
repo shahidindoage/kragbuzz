@@ -16,6 +16,7 @@ export interface Product {
   isBestSeller?: boolean;
   features?: string[];
   techSpecs?: Record<string, string>;
+  images?:string[];
 }
 
 export interface CartItem {

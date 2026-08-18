@@ -84,13 +84,13 @@ const HeroBanner = () => {
         </p>
 
         <div>
-          <a 
-            href="#best-sellers-section2" 
+          <Link 
+            to="/collections/headwear" 
             onClick={() => console.log('Explore Collection clicked')}
             className="border-2 border-black text-white font-bold tracking-wider text-xs sm:text-sm uppercase px-8 py-3 bg-black transition-all duration-300 hover:bg-black hover:text-[#E72F07] inline-block shadow-lg"
           >
             EXPLORE KRAGCAPS
-          </a>
+          </Link>
         </div>
       </div>
     </section>
@@ -1265,6 +1265,7 @@ export const SizingSection = () => {
 import { Award } from 'lucide-react';
 import { BestSellers2Section } from '../components/BestSellers2Section';
 import { InstagramSection, ReviewSection2 } from './Creatory';
+import { Link } from 'react-router-dom';
 
 interface MarqueeProps {
   children: React.ReactNode;

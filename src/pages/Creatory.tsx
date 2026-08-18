@@ -72,13 +72,13 @@ const HeroBanner = () => {
 
           {/* CTA Button */}
           <div>
-            <a
-              href="#best-sellers-section2"
+            <Link
+             to="/collections/kids" 
               onClick={() => console.log('Explore Collection clicked')}
               className="inline-block bg-transparent border border-[#E72F07] hover:bg-[#E72F07] hover:text-black text-[#E72F07] font-bold tracking-wider text-xs sm:text-sm uppercase px-8 py-4 transition-all duration-300 active:scale-95"
             >
               EXPLORE CREATORY
-            </a>
+            </Link>
           </div>
 
         </div>
@@ -273,6 +273,7 @@ export const InstagramSection = () => {
 
 import { Star, ChevronLeft, Quote, CheckCircle, ShoppingBag } from 'lucide-react';
 import { Review } from '../types';
+import { Link } from 'react-router-dom';
 
 interface ReviewSectionProps {
   reviews?: Review[];
